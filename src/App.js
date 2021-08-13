@@ -10,7 +10,7 @@ function App() {
           path='/'
           exact
           render={() => (
-            <p>Teste</p>
+            <p>Welcome</p>
             )}
         />
 
@@ -18,7 +18,7 @@ function App() {
           path='/demos/actgan'
           exact
           render={() => (
-            <ModelDisplay />
+            <ModelDisplay backendURL='http://127.0.0.1:5000' />
           )}
         />
       </div>
