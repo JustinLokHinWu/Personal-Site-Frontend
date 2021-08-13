@@ -1,37 +1,21 @@
-import axios from 'axios'
-import { useState, useEffect } from 'react'
+ import Select from 'react-select'
 
-const SelectEpoch = ({ backendURL }) => {
-    const [epochs, setEpochs] = useState([])
+const SelectEpoch = ({ epochs, selectedEpoch, setSelectedEpoch }) => {
 
-    useEffect(() => {
-        const fetchEpochs = async () => {
-            axios.get(
-                `${backendURL}/get-epochs`,
-                {
-                    'params': {
-                        'dataset': 'cifar'
-                    }
-                },
-                {
-                    responseType: 'json'
-                }
-                ).then((response) => {
-                    setEpochs(response.data.epochs)
-                    // const request.data
-                }).catch((error) => {
-                    console.log(error)
-                })
-        }
-        fetchEpochs()
-    }, [backendURL])
+    const handleChange = (selectedOption) => {
+        setSelectedEpoch(selectedOption)
+    }
 
     return (
-        <select name='epoch' id='epoch_select'>
-            {epochs.map((epoch) => (
-                <option value={ epoch }>{ epoch }</option>
-            ))}
-        </select>
+        <Select
+            defaultValue={
+                { value: null, label: 'Select epoch'}
+            }
+            value={selectedEpoch}
+            onChange={handleChange}
+            options={epochs.map((epoch) => (
+                { value: epoch, label: epoch}
+            ))}/>
     )
 }
 

@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import ModelDisplay from './components/ModelDisplay'
+import ModelDemo from './components/ModelDemo'
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           path='/demos/actgan'
           exact
           render={() => (
-            <ModelDisplay backendURL='http://127.0.0.1:5000' />
+            <ModelDemo backendURL='http://127.0.0.1:5000' />
           )}
         />
       </div>
