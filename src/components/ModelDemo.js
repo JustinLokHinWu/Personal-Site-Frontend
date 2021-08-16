@@ -6,8 +6,10 @@ import ModelForm from './ModelForm'
 const ModelDemo = ({ backendURL }) => {
     const [imagePath, setImagePath] = useState('')
     const [epochs, setEpochs] = useState([])
+    const [isRequesting, setIsRequesting] = useState(false)
 
     const fetchImage = async (epoch) => {
+        setIsRequesting(true)
         axios.post(
             `${backendURL}/generate`,
             {
@@ -23,6 +25,8 @@ const ModelDemo = ({ backendURL }) => {
             setImagePath(URL.createObjectURL(file))
         }).catch((error) => {
             console.log(error)
+        }).finally(() => {
+            setIsRequesting(false)
         })
     }
 
@@ -51,7 +55,11 @@ const ModelDemo = ({ backendURL }) => {
     return (
         <div>
             <p>Model Display</p>
-            <ModelForm epochs={epochs} fetchImage={fetchImage} />
+            <ModelForm
+                epochs={epochs}
+                fetchImage={fetchImage}
+                isRequesting={isRequesting}
+                />
             <img height='128' width='128' src={imagePath} alt="Model result"/>
         </div>
     )
