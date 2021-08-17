@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ModelForm from './ModelForm'
 import ModelDisplay from './ModelDisplay'
+import { Divider, PageHeader, Row, Col } from 'antd'
 
 
 const ModelDemo = ({ backendURL }) => {
@@ -76,13 +77,25 @@ const ModelDemo = ({ backendURL }) => {
 
     return (
         <div>
-            <ModelForm
-                epochs={epochs}
-                classes={classes}
-                fetchImage={fetchImage}
-                isRequesting={isRequesting}
-                />
-            <ModelDisplay images={images} />
+            <PageHeader
+                className='site-page-header'
+                title='ACTGAN Demo'
+            />
+            <Divider />
+            <Row>
+                <Col span={8}>
+                <ModelForm
+                    epochs={epochs}
+                    classes={classes}
+                    fetchImage={fetchImage}
+                    isRequesting={isRequesting}
+                    />
+                </Col>
+                <Col span={16}>
+                    <ModelDisplay images={images} />
+                </Col>
+            </Row>
+
             {/* <img height='128' width='128' src={images.length ? images[0].path : ''} alt="Model result"/> */}
         </div>
     )
