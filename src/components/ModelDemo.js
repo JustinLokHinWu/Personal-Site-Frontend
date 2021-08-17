@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ModelForm from './ModelForm'
+import ModelDisplay from './ModelDisplay'
 
 
 const ModelDemo = ({ backendURL }) => {
-    const [imagePath, setImagePath] = useState('')
+    const [images, setImages] = useState([])
     const [epochs, setEpochs] = useState([])
     const [classes, setClasses] = useState([])
     const [isRequesting, setIsRequesting] = useState(false)
@@ -24,7 +25,9 @@ const ModelDemo = ({ backendURL }) => {
             }
         ).then((response) => {
             const file = new Blob([response.data], {type:'image/jpeg'})
-            setImagePath(URL.createObjectURL(file))
+            setImages([{
+                'path': URL.createObjectURL(file)
+            }, ...images])
         }).catch((error) => {
             console.log(error)
         }).finally(() => {
@@ -73,14 +76,14 @@ const ModelDemo = ({ backendURL }) => {
 
     return (
         <div>
-            <p>Model Display</p>
             <ModelForm
                 epochs={epochs}
                 classes={classes}
                 fetchImage={fetchImage}
                 isRequesting={isRequesting}
                 />
-            <img height='128' width='128' src={imagePath} alt="Model result"/>
+            <ModelDisplay images={images} />
+            {/* <img height='128' width='128' src={images.length ? images[0].path : ''} alt="Model result"/> */}
         </div>
     )
 }
