@@ -2,10 +2,6 @@ import { Input } from 'antd'
 import "antd/dist/antd.css";
 
 const SeedInput = ({seed, setSeed}) => {
-    const validate = (value) => {
-        
-    }
-
     const onChange = (e) => {
         const value = e.target.value
         const reg = /^[0-9]*$/
@@ -14,10 +10,7 @@ const SeedInput = ({seed, setSeed}) => {
         }
         else if (reg.test(value) && +value < Number.MAX_SAFE_INTEGER){
             setSeed(value)
-        } else {
-            return false
         }
-
     }
 
     return (
