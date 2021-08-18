@@ -85,8 +85,8 @@ const ModelDemo = ({ backendURL }) => {
                 title='ACTGAN Demo'
             />
             <Divider />
-            <Row style={{ overflowY:'auto', overflowX:'hidden', height:'60vh'}}>
-                <Col xs={24} md={8}>
+            <Row>
+                <Col xs={24} md={12} lg={8}>
                 <ModelForm
                     epochs={epochs}
                     classes={classes}
@@ -94,7 +94,7 @@ const ModelDemo = ({ backendURL }) => {
                     isRequesting={isRequesting}
                     />
                 </Col>
-                <Col xs={24} md={16}>
+                <Col xs={24} md={12} lg={16} style={{ overflowY:'auto', overflowX:'hidden', height:'60vh'}}>
                     <ModelDisplay images={images} />
                 </Col>
             </Row>
