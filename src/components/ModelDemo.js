@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ModelForm from './ModelForm'
 import ModelDisplay from './ModelDisplay'
-import { Divider, PageHeader, Row, Col } from 'antd'
+import { Divider, PageHeader, Row, Col, Descriptions } from 'antd'
+import DescriptionsItem from 'antd/lib/descriptions/Item'
 
 
 const ModelDemo = ({ backendURL }) => {
@@ -83,9 +84,20 @@ const ModelDemo = ({ backendURL }) => {
             <PageHeader
                 className='site-page-header'
                 title='ACTGAN Demo'
-            />
+            >
+                <Descriptions column={1} size='small'>
+                    <DescriptionsItem>
+                        TODO add description
+                    </DescriptionsItem>
+                    <DescriptionsItem>
+                        <a href={'https://github.com/JustinLokHinWu/ACTGAN'}>
+                            ACTGAN Github
+                        </a>
+                    </DescriptionsItem>
+                </Descriptions>
+            </PageHeader>
             <Divider />
-            <Row>
+            <Row justify='space-around'>
                 <Col xs={24} md={12} lg={8}>
                 <ModelForm
                     epochs={epochs}

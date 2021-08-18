@@ -29,7 +29,7 @@ const ModelDisplay = ({images}) => {
                             }
                         >
                             <Image
-                                width={'96px'}
+                                width={'100%'}
                                 src={item.path} />
                         </Popover>
                     </Card>
