@@ -13,7 +13,7 @@ function App() {
       <Header>
         <p>Header</p>
       </Header>
-      <Content className="site-layout" style={{ padding: '0 50px' }}>
+      <Content className="site-layout" style={{ padding: '0 5%' }}>
         <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
           <Router>
             <div className="App-header"> 
@@ -36,7 +36,7 @@ function App() {
           </Router>
         </div>
         </Content>
-      <Footer style={{ textAlign: 'center' }}>Justin Wu @2021</Footer>
+      <Footer style={{ textAlign: 'center' }}>Justin Wu &#xA9;2021</Footer>
     </Layout>
   );
 }

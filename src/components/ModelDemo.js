@@ -27,7 +27,10 @@ const ModelDemo = ({ backendURL }) => {
         ).then((response) => {
             const file = new Blob([response.data], {type:'image/jpeg'})
             setImages([{
-                'path': URL.createObjectURL(file)
+                'path': URL.createObjectURL(file),
+                'epoch': epoch,
+                'class': classes[class_id],
+                'seed': seed
             }, ...images])
         }).catch((error) => {
             console.log(error)
@@ -82,8 +85,8 @@ const ModelDemo = ({ backendURL }) => {
                 title='ACTGAN Demo'
             />
             <Divider />
-            <Row>
-                <Col span={8}>
+            <Row style={{ overflowY:'auto', overflowX:'hidden', height:'60vh'}}>
+                <Col xs={24} md={8}>
                 <ModelForm
                     epochs={epochs}
                     classes={classes}
@@ -91,12 +94,10 @@ const ModelDemo = ({ backendURL }) => {
                     isRequesting={isRequesting}
                     />
                 </Col>
-                <Col span={16}>
+                <Col xs={24} md={16}>
                     <ModelDisplay images={images} />
                 </Col>
             </Row>
-
-            {/* <img height='128' width='128' src={images.length ? images[0].path : ''} alt="Model result"/> */}
         </div>
     )
 }

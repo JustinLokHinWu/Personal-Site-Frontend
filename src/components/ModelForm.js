@@ -17,7 +17,8 @@ const ModelForm = ({ epochs, classes, fetchImage, isRequesting }) => {
         <Form
             onFinish={handleSubmit}
             labelCol={{ span: 8 }}
-            wrapperCol={{ span: 16 }}>
+            wrapperCol={{ span: 16 }}
+            style={{ padding: 16 }}>
             <Form.Item
                 label='Epoch'
                 name='epoch'
@@ -25,7 +26,6 @@ const ModelForm = ({ epochs, classes, fetchImage, isRequesting }) => {
             >
                 <Select
                     placeholder="Select epoch"
-                    style={{ width: 150 }}
                     options={epochs.map((epoch) => (
                         {'value': epoch}
                     ))}
@@ -40,7 +40,6 @@ const ModelForm = ({ epochs, classes, fetchImage, isRequesting }) => {
             >
                 <Select
                     placeholder="Select class"
-                    style={{ width: 150 }}
                     options={classes.map((class_label, index) => (
                         {'label': class_label, 'value': index}
                     ))}
@@ -58,6 +57,11 @@ const ModelForm = ({ epochs, classes, fetchImage, isRequesting }) => {
                 <Button
                     type='primary'
                     htmlType='submit'
+                    style={{ 
+                        whiteSpace: "normal",
+                        height:'auto',
+                        marginBottom:'10px'
+                    }}
                     loading={isRequesting}>Generate Image</Button>
             </Form.Item>
         </Form>

@@ -17,7 +17,6 @@ const SeedInput = ({seed, setSeed}) => {
         <Input
             placeholder='Random'
             value={seed}
-            style={{ width: 150 }}
             onChange={onChange}
             />
     )

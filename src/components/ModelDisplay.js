@@ -2,26 +2,29 @@ import { Image, List, Card } from 'antd'
 import "antd/dist/antd.css";
 
 const ModelDisplay = ({images}) => {
-    const maxDisplayCount = 6
     return (
         <List
             grid={{
                 gutter: 16,
-                // xs: 1,
-                // sm: 2,
-                // md: 4,
-                // lg: 4,
-                // xl: 6,
-                // xxl: 3,
+                xs: 1,
+                sm: 2,
+                md: 3,
+                lg: 3,
+                xl: 4,
+                xxl: 5
               }}
-            dataSource={images.slice(0, maxDisplayCount)}
-            renderItem={(item) => (
+            dataSource={images}
+            renderItem={(item, index) => (
                 <List.Item>
-                    <Card>
+                    <Card style={index===0 ? { borderColor:'grey'} :{ }}>
                         <Image
-                            width={128}
+                            width={'96px'}
                             src={item.path} />
-                        <p>Hello!</p>
+                        <p>
+                            Class: {item.class}<br/>
+                            Epoch: {item.epoch}<br/>
+                            Seed: {item.seed ? item.seed : 'Random'}
+                            </p>
                     </Card>
                 </List.Item>
             )}
