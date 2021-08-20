@@ -16,8 +16,23 @@ const ModelDisplay = ({images}) => {
             dataSource={images}
             renderItem={(item, index) => (
                 <List.Item>
-                    <Card style={index===0 ? { borderColor:'grey'} :{ }}>
-                        <Popover
+                    <Popover
+                        content={
+                            <div>
+                                <p>
+                                    Class: {item.class}<br/>
+                                    Epoch: {item.epoch}<br/>
+                                    Seed: {item.seed ? item.seed : 'Random'}
+                                </p>
+                            </div>
+                        }
+                    >
+                        <Image
+                        width='96px'
+                        src={item.path} />
+                    </Popover>
+                    
+                        {/* <Popover
                             content={
                                 <div>
                                     <p>
@@ -29,10 +44,9 @@ const ModelDisplay = ({images}) => {
                             }
                         >
                             <Image
-                                width={'100%'}
+                                width={'64px'}
                                 src={item.path} />
-                        </Popover>
-                    </Card>
+                        </Popover> */}
                 </List.Item>
             )}
         />

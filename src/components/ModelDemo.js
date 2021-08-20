@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { GithubFilled } from '@ant-design/icons';
 import ModelForm from './ModelForm'
 import ModelDisplay from './ModelDisplay'
-import { Divider, PageHeader, Row, Col, Descriptions } from 'antd'
+import { Divider, PageHeader, Row, Col, Descriptions, message } from 'antd'
 import DescriptionsItem from 'antd/lib/descriptions/Item'
+
 
 
 const ModelDemo = ({ backendURL }) => {
@@ -35,6 +37,7 @@ const ModelDemo = ({ backendURL }) => {
             }, ...images])
         }).catch((error) => {
             console.log(error)
+            message.error('Failed to fetch the requested image')
         }).finally(() => {
             setIsRequesting(false)
         })
@@ -56,6 +59,7 @@ const ModelDemo = ({ backendURL }) => {
                     setEpochs(response.data.epochs)
                 }).catch((error) => {
                     console.log(error)
+                    message.error('Failed to fetch valid epochs')
                 })
         }
         const fetchClasses = async () => {
@@ -73,6 +77,7 @@ const ModelDemo = ({ backendURL }) => {
                     setClasses(response.data.classes)
                 }).catch((error) => {
                     console.log(error)
+                    message.error('Failed to fetch valid classes')
                 })
         }
         fetchEpochs()
@@ -86,13 +91,13 @@ const ModelDemo = ({ backendURL }) => {
                 title='ACTGAN Demo'
             >
                 <Descriptions column={1} size='small'>
-                    <DescriptionsItem>
-                        TODO add description
+                    <DescriptionsItem> 
+                        <a href={'https://github.com/JustinLokHinWu/ACTGAN'}>
+                            <GithubFilled />
+                        </a>
                     </DescriptionsItem>
                     <DescriptionsItem>
-                        <a href={'https://github.com/JustinLokHinWu/ACTGAN'}>
-                            ACTGAN Github
-                        </a>
+                        TODO add description
                     </DescriptionsItem>
                 </Descriptions>
             </PageHeader>
