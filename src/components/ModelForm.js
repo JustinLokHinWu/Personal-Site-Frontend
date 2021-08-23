@@ -1,17 +1,35 @@
-import { useState } from 'react'
-import { Select, Button, Form, Input } from 'antd'
+import { useState, useEffect } from 'react'
+import { Select, Button, Form } from 'antd'
 import "antd/dist/antd.css";
 import SeedInput from './SeedInput';
+import SelectEpoch from './SelectEpoch';
+import SelectClass from './SelectClass';
 
-const ModelForm = ({ epochs, classes, fetchImage, isRequesting }) => {
+const ModelForm = ({
+    epochs,
+    classes,
+    fetchImage,
+    isRequesting,
+    datasets,
+    isDatasetReady,
+    selectedDataset,
+    setSelectedDataset}) => {
+    
     const [selectedEpoch, setSelectedEpoch] = useState()
     const [selectedClass, setSelectedClass] = useState()
     const [seed, setSeed] = useState(null)
 
-    const handleSubmit = (event) => {
-        console.log('Submitting form')
-        fetchImage(selectedEpoch, selectedClass, seed) 
+    const handleSubmit = () => {
+        fetchImage(selectedDataset, selectedEpoch, selectedClass, seed) 
     }
+
+    useEffect(() => {
+        setSelectedEpoch(epochs[0])
+    }, [epochs])
+
+    useEffect(() => {
+        setSelectedClass(0)
+    }, [classes])
 
     return (
         <Form
@@ -20,30 +38,41 @@ const ModelForm = ({ epochs, classes, fetchImage, isRequesting }) => {
             wrapperCol={{ span: 16 }}
             style={{ padding: 16 }}>
             <Form.Item
-                label='Epoch'
-                name='epoch'
-                rules={[{required: true, message: 'Please select an epoch'}]}
+                label='Dataset'
+                name='dataset'
+                rules={[{required: true, message: 'Please select a dataset'}]}
             >
                 <Select
-                    placeholder="Select epoch"
-                    options={epochs.map((epoch) => (
-                        {'value': epoch}
+                    placeholder="Select dataset"
+                    options={datasets.map((dataset) => (
+                        {'value': dataset}
                     ))}
-                    onChange={(epoch) => {setSelectedEpoch(epoch)}}
+                    onChange={(dataset) => {setSelectedDataset(dataset)}}
+                    // disabled={!isDatasetReady}
+                    // loading={!isDatasetReady}
+                />
+            </Form.Item>
+            <Form.Item
+                label='Epoch'
+                name='epoch'
+            >
+                <SelectEpoch
+                    epochs={epochs}
+                    selectedEpoch={selectedEpoch}
+                    setSelectedEpoch={setSelectedEpoch}
+                    isDatasetReady={isDatasetReady}
                 />
             </Form.Item>
 
             <Form.Item
                 label='Class'
                 name='class'
-                rules={[{required: true, message: 'Please select an class'}]}
             >
-                <Select
-                    placeholder="Select class"
-                    options={classes.map((class_label, index) => (
-                        {'label': class_label, 'value': index}
-                    ))}
-                    onChange={(class_id) => {setSelectedClass(class_id)}}
+                <SelectClass
+                    classes={classes}
+                    selectedClass={selectedClass}
+                    setSelectedClass={setSelectedClass}
+                    isDatasetReady={isDatasetReady}
                 />
             </Form.Item>
 
@@ -62,7 +91,8 @@ const ModelForm = ({ epochs, classes, fetchImage, isRequesting }) => {
                         height:'auto',
                         marginBottom:'10px'
                     }}
-                    loading={isRequesting}>Generate Image</Button>
+                    loading={isRequesting}
+                    disabled={!isDatasetReady}>Generate Image</Button>
             </Form.Item>
         </Form>
     )

@@ -6,22 +6,25 @@ import ModelDisplay from './ModelDisplay'
 import { Divider, PageHeader, Row, Col, Descriptions, message } from 'antd'
 import DescriptionsItem from 'antd/lib/descriptions/Item'
 
-
-
 const ModelDemo = ({ backendURL }) => {
+    const [datasets, setDatasets] = useState([])
     const [images, setImages] = useState([])
     const [epochs, setEpochs] = useState([])
     const [classes, setClasses] = useState([])
+    
+    const [selectedDataset, setSelectedDataset] = useState()
+
+    const [isDatasetReady, setIsDatasetReady] = useState(false)
     const [isRequesting, setIsRequesting] = useState(false)
 
-    const fetchImage = async (epoch, class_id, seed) => {
+    const fetchImage = async (dataset, epoch, class_id, seed) => {
         setIsRequesting(true)
         axios.post(
             `${backendURL}/generate`,
             {
                 'class_id': class_id,
                 'epoch': epoch,
-                'dataset': 'cifar',
+                'dataset': dataset,
                 ...(seed !== null && { 'seed': seed })
             },
             {
@@ -44,45 +47,65 @@ const ModelDemo = ({ backendURL }) => {
     }
 
     useEffect(() => {
-        const fetchEpochs = async () => {
+        const fetchDatasets = async () => {
             axios.get(
+                `${backendURL}/get-datasets`,
+            ).then((response) => {
+                console.log(response)
+                setDatasets(response.data)
+
+            }).catch((error) => {
+                console.log(error)
+                message.error('Failed to get datasets')
+            })
+        }
+        setIsDatasetReady(false)
+        fetchDatasets()
+
+    }, [backendURL])
+
+    useEffect(() => {
+        const fetchEpochsAndClasses = async (dataset) => {
+            setIsDatasetReady(false)
+            const requestEpochs = axios.get(
                 `${backendURL}/get-epochs`,
                 {
                     'params': {
-                        'dataset': 'cifar'
+                        'dataset': dataset
                     }
                 },
                 {
                     responseType: 'json'
                 }
-                ).then((response) => {
-                    setEpochs(response.data.epochs)
-                }).catch((error) => {
-                    console.log(error)
-                    message.error('Failed to fetch valid epochs')
-                })
-        }
-        const fetchClasses = async () => {
-            axios.get(
+            )
+
+            const requestClasses = axios.get(
                 `${backendURL}/get-classes`,
                 {
                     'params': {
-                        'dataset': 'cifar'
+                        'dataset': dataset
                     }
                 },
                 {
                     responseType: 'json'
                 }
-                ).then((response) => {
-                    setClasses(response.data.classes)
-                }).catch((error) => {
-                    console.log(error)
-                    message.error('Failed to fetch valid classes')
+            )
+
+            axios.all([requestEpochs, requestClasses]).then(
+                axios.spread((...responses) => {
+                    setEpochs(responses[0].data)
+                    setClasses(responses[1].data)
+                    setIsDatasetReady(true)
+                })).catch(errors => {
+                    console.log(errors)
                 })
         }
-        fetchEpochs()
-        fetchClasses()
-    }, [backendURL])
+
+        if (selectedDataset) {
+            console.log("Fetching epochs and classes")
+            fetchEpochsAndClasses(selectedDataset)
+        }
+    }, [backendURL, selectedDataset, datasets.length])
 
     return (
         <div>
@@ -109,6 +132,10 @@ const ModelDemo = ({ backendURL }) => {
                     classes={classes}
                     fetchImage={fetchImage}
                     isRequesting={isRequesting}
+                    datasets={datasets}
+                    isDatasetReady={isDatasetReady}
+                    selectedDataset={selectedDataset}
+                    setSelectedDataset={setSelectedDataset}
                     />
                 </Col>
                 <Col xs={24} md={12} lg={16} style={{ overflowY:'auto', overflowX:'hidden', height:'60vh'}}>
