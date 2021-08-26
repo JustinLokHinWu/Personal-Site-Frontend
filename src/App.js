@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Layout } from 'antd'
 import 'antd/dist/antd.css';
 import ModelDemo from './components/ModelDemo'
-// import Footer from './components/Footer'
+import HeaderMenu from './components/HeaderMenu';
 
 const { Header, Content, Footer } = Layout;
 
@@ -11,7 +11,7 @@ function App() {
   return (
     <Layout style={{ 'minHeight': '100vh'}}>
       <Header>
-        <p>Header</p>
+        <HeaderMenu />
       </Header>
       <Content className="site-layout" style={{ padding: '0 5%' }}>
         <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
