@@ -3,7 +3,7 @@ import axios from 'axios'
 import { GithubFilled } from '@ant-design/icons';
 import ModelForm from './ModelForm'
 import ModelDisplay from './ModelDisplay'
-import { Divider, PageHeader, Row, Col, Descriptions, message } from 'antd'
+import { Divider, PageHeader, Row, Col, Descriptions, message, Button } from 'antd'
 import DescriptionsItem from 'antd/lib/descriptions/Item'
 
 const ModelDemo = ({ backendURL }) => {
@@ -114,13 +114,15 @@ const ModelDemo = ({ backendURL }) => {
                 title='ACTGAN Demo'
             >
                 <Descriptions column={1} size='small'>
-                    <DescriptionsItem> 
-                        <a href={'https://github.com/JustinLokHinWu/ACTGAN'}>
-                            <GithubFilled />
-                        </a>
-                    </DescriptionsItem>
                     <DescriptionsItem>
                         TODO add description
+                    </DescriptionsItem>
+                    <DescriptionsItem> 
+                        <Button
+                            type='link'
+                            href={'https://github.com/JustinLokHinWu/ACTGAN'}>
+                                <GithubFilled />ACTGAN
+                        </Button>
                     </DescriptionsItem>
                 </Descriptions>
             </PageHeader>
