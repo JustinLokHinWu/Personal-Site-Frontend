@@ -19,8 +19,17 @@ const ModelForm = ({
     const [selectedClass, setSelectedClass] = useState()
     const [seed, setSeed] = useState(null)
 
+    const generateRandomSeed = () => {
+        return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)
+    }
+
     const handleSubmit = () => {
-        fetchImage(selectedDataset, selectedEpoch, selectedClass, seed) 
+        // If the seed is not set, generate a random one. The backend can
+        // handle a missing seed, but doing it this way means we can have the
+        // seed in the frontend without fetching it from the server
+        const image_seed = (seed==null) ? generateRandomSeed() : seed
+        
+        fetchImage(selectedDataset, selectedEpoch, selectedClass, image_seed) 
     }
 
     useEffect(() => {
