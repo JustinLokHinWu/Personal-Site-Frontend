@@ -4,6 +4,7 @@ import { Layout } from 'antd'
 import 'antd/dist/antd.css';
 import ModelDemo from './components/ModelDemo'
 import HeaderMenu from './components/HeaderMenu';
+import Home from './components/Home';
 
 const { Header, Content, Footer } = Layout;
 
@@ -21,7 +22,7 @@ function App() {
                 path='/'
                 exact
                 render={() => (
-                  <p>Welcome</p>
+                  <Home />
                   )}
               />
 
