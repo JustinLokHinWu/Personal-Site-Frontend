@@ -20,7 +20,7 @@ const ModelDemo = ({ backendURL }) => {
     const fetchImage = async (dataset, epoch, class_id, seed) => {
         setIsRequesting(true)
         axios.post(
-            `${backendURL}/generate`,
+            `${backendURL}/actgan/generate`,
             {
                 'class_id': class_id,
                 'epoch': epoch,
@@ -49,7 +49,7 @@ const ModelDemo = ({ backendURL }) => {
     useEffect(() => {
         const fetchDatasets = async () => {
             axios.get(
-                `${backendURL}/get-datasets`,
+                `${backendURL}/actgan/get-datasets`,
             ).then((response) => {
                 console.log(response)
                 setDatasets(response.data)
@@ -68,7 +68,7 @@ const ModelDemo = ({ backendURL }) => {
         const fetchEpochsAndClasses = async (dataset) => {
             setIsDatasetReady(false)
             const requestEpochs = axios.get(
-                `${backendURL}/get-epochs`,
+                `${backendURL}/actgan/get-epochs`,
                 {
                     'params': {
                         'dataset': dataset
@@ -80,7 +80,7 @@ const ModelDemo = ({ backendURL }) => {
             )
 
             const requestClasses = axios.get(
-                `${backendURL}/get-classes`,
+                `${backendURL}/actgan/get-classes`,
                 {
                     'params': {
                         'dataset': dataset
