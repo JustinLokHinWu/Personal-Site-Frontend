@@ -6,7 +6,7 @@ import ModelDisplay from './ModelDisplay'
 import { Divider, PageHeader, Row, Col, Descriptions, message, Button } from 'antd'
 import DescriptionsItem from 'antd/lib/descriptions/Item'
 
-const ModelDemo = ({ backendURL }) => {
+const ModelDemo = ({ info, backendURL }) => {
     const [datasets, setDatasets] = useState([])
     const [images, setImages] = useState([])
     const [epochs, setEpochs] = useState([])
@@ -20,7 +20,7 @@ const ModelDemo = ({ backendURL }) => {
     const fetchImage = async (dataset, epoch, class_id, seed) => {
         setIsRequesting(true)
         axios.post(
-            `${backendURL}/actgan/generate`,
+            `${backendURL}/generate`,
             {
                 'class_id': class_id,
                 'epoch': epoch,
@@ -49,11 +49,15 @@ const ModelDemo = ({ backendURL }) => {
     useEffect(() => {
         const fetchDatasets = async () => {
             axios.get(
-                `${backendURL}/actgan/get-datasets`,
+                `${backendURL}/get-datasets`,
+                {
+                    // 'Content-Type': 'text/plain',
+                    'Access-Control-Allow-Origin': '*'
+                }
             ).then((response) => {
                 console.log(response)
                 setDatasets(response.data)
-
+                setIsDatasetReady(true)
             }).catch((error) => {
                 console.log(error)
                 message.error('Failed to get datasets')
@@ -66,9 +70,8 @@ const ModelDemo = ({ backendURL }) => {
 
     useEffect(() => {
         const fetchEpochsAndClasses = async (dataset) => {
-            setIsDatasetReady(false)
             const requestEpochs = axios.get(
-                `${backendURL}/actgan/get-epochs`,
+                `${backendURL}/get-epochs`,
                 {
                     'params': {
                         'dataset': dataset
@@ -80,7 +83,7 @@ const ModelDemo = ({ backendURL }) => {
             )
 
             const requestClasses = axios.get(
-                `${backendURL}/actgan/get-classes`,
+                `${backendURL}/get-classes`,
                 {
                     'params': {
                         'dataset': dataset
@@ -90,7 +93,6 @@ const ModelDemo = ({ backendURL }) => {
                     responseType: 'json'
                 }
             )
-
             axios.all([requestEpochs, requestClasses]).then(
                 axios.spread((...responses) => {
                     setEpochs(responses[0].data)
@@ -111,16 +113,16 @@ const ModelDemo = ({ backendURL }) => {
         <div>
             <PageHeader
                 className='site-page-header'
-                title='ACTGAN Demo'
+                title={info.title}
             >
                 <Descriptions column={1} size='small'>
                     <DescriptionsItem>
-                        TODO add description
+                        {info.description}
                     </DescriptionsItem>
                     <DescriptionsItem> 
                         <Button
                             type='link'
-                            href={'https://github.com/JustinLokHinWu/ACTGAN'}>
+                            href={info.source_path}>
                                 <GithubFilled />ACTGAN
                         </Button>
                     </DescriptionsItem>
