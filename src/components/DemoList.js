@@ -1,25 +1,36 @@
 import { List } from 'antd'
 import 'antd/dist/antd.css';
+import DemoListItem from './DemoListItem';
+import { DemoInfo } from './DemoInfo'
 
 const DemoList = () => {
+    console.log(DemoInfo)
+    const demos = DemoInfo
+    console.log(demos)
     return (
         // TODO: migrate descriptions, etc. to web service
         <List
             itemLayout="vertical"
             size="large"
+            dataSource={demos}
+            renderItem={(item) => (
+                <DemoListItem
+                    title={item.title}
+                    description={item.description}
+                    demoPath={item.page_path}
+                    sourcePath={item.sourcePath}
+                >
+                    Ding Dong
+                </DemoListItem>
+            )}
         >
-            <List.Item>
-                <List.Item.Meta
-                    title='Personal Website'
-                    description='Test'
-                />
-            </List.Item>
-            <List.Item>
-                <List.Item.Meta
-                    title='ACTGAN'
-                    description='Test'
-                />
-            </List.Item>
+
+            {/* <DemoListItem
+                title='ACTGAN Demo'
+                description=''
+                demoPath='/demos/actgan'
+                sourcePath='https://github.com/JustinLokHinWu/ACTGAN'
+            /> */}
         </List>
     )
 }

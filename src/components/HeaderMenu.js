@@ -6,7 +6,8 @@ const HeaderMenu = () => {
             theme='dark'
             mode='horizontal'
         >
-            <Menu.Item>
+            <Menu.Item
+                key='home'>
                 <a href="/" rel="noopener noreferrer">
                     Home
                 </a>

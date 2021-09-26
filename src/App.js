@@ -5,6 +5,7 @@ import 'antd/dist/antd.css';
 import ModelDemo from './components/ModelDemo'
 import HeaderMenu from './components/HeaderMenu';
 import Home from './components/Home';
+import { ActganInfo } from './components/DemoInfo'
 
 const { Header, Content, Footer } = Layout;
 
@@ -30,7 +31,9 @@ function App() {
                 path='/demos/actgan'
                 exact
                 render={() => (
-                  <ModelDemo backendURL='http://127.0.0.1:8000' />
+                  <ModelDemo
+                    info={ActganInfo}
+                    backendURL='http://localhost:8000/actgan' />
                 )}
               />
             </div>
