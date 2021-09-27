@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { GithubFilled } from '@ant-design/icons';
 import ModelForm from './ModelForm'
 import ModelDisplay from './ModelDisplay'
 import { Divider, PageHeader, Row, Col, Descriptions, message, Button } from 'antd'
@@ -16,6 +15,8 @@ const ModelDemo = ({ info, backendURL }) => {
 
     const [isDatasetReady, setIsDatasetReady] = useState(false)
     const [isRequesting, setIsRequesting] = useState(false)
+    const [fetchingDatasetLists, setFetchingDatasetLists] = useState(false)
+    const [fetchingClassAndEpochs, setfetchingClassAndEpochs] = useState(false)
 
     const fetchImage = async (dataset, epoch, class_id, seed) => {
         setIsRequesting(true)
@@ -51,7 +52,6 @@ const ModelDemo = ({ info, backendURL }) => {
             axios.get(
                 `${backendURL}/get-datasets`,
                 {
-                    // 'Content-Type': 'text/plain',
                     'Access-Control-Allow-Origin': '*'
                 }
             ).then((response) => {
@@ -64,7 +64,9 @@ const ModelDemo = ({ info, backendURL }) => {
             })
         }
         setIsDatasetReady(false)
+        setFetchingDatasetLists(true)
         fetchDatasets()
+        setFetchingDatasetLists(false)
 
     }, [backendURL])
 
@@ -104,8 +106,9 @@ const ModelDemo = ({ info, backendURL }) => {
         }
 
         if (selectedDataset) {
-            console.log("Fetching epochs and classes")
+            setfetchingClassAndEpochs(true)
             fetchEpochsAndClasses(selectedDataset)
+            setfetchingClassAndEpochs(false)
         }
     }, [backendURL, selectedDataset, datasets.length])
 
@@ -120,11 +123,15 @@ const ModelDemo = ({ info, backendURL }) => {
                         {info.description}
                     </DescriptionsItem>
                     <DescriptionsItem> 
-                        <Button
-                            type='link'
-                            href={info.source_path}>
-                                <GithubFilled />ACTGAN
-                        </Button>
+                    {
+                        info.links.map(entry => 
+                            <Button
+                                type='link'
+                                href={entry.link}>
+                                    <entry.icon />{entry.text}
+                            </Button>
+                        )
+                    }
                     </DescriptionsItem>
                 </Descriptions>
             </PageHeader>
@@ -140,6 +147,8 @@ const ModelDemo = ({ info, backendURL }) => {
                     isDatasetReady={isDatasetReady}
                     selectedDataset={selectedDataset}
                     setSelectedDataset={setSelectedDataset}
+                    fetchingDatasetLists={fetchingDatasetLists}
+                    fetchingClassAndEpochs={fetchingClassAndEpochs}
                     />
                 </Col>
                 <Col xs={24} md={12} lg={16} style={{ overflowY:'auto', overflowX:'hidden', height:'60vh'}}>
