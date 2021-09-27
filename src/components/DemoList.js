@@ -18,7 +18,7 @@ const DemoList = () => {
                     title={item.title}
                     description={item.description}
                     demoPath={item.page_path}
-                    sourcePath={item.sourcePath}
+                    links={item.links}
                 >
                     Ding Dong
                 </DemoListItem>
