@@ -1,6 +1,6 @@
 import { Select } from 'antd'
 
-const SelectEpoch = ({epochs, selectedEpoch, setSelectedEpoch, isDatasetReady}) => {
+const SelectEpoch = ({epochs, selectedEpoch, setSelectedEpoch, isDatasetReady, fetchingClassAndEpochs, datasetSelected}) => {
     return (
         <Select
             placeholder="Select epoch"
@@ -8,8 +8,9 @@ const SelectEpoch = ({epochs, selectedEpoch, setSelectedEpoch, isDatasetReady}) 
                 {'value': epoch}
             ))}
             onChange={(epoch) => {setSelectedEpoch(epoch)}}
-            disabled={!isDatasetReady}
+            disabled={!isDatasetReady || !datasetSelected}
             value={selectedEpoch}
+            loading={fetchingClassAndEpochs}
         />
     )
 }

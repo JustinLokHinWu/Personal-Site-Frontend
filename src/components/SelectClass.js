@@ -1,6 +1,6 @@
 import { Select } from 'antd'
 
-const SelectClass = ({classes, selectedClass, setSelectedClass, isDatasetReady}) => {
+const SelectClass = ({classes, selectedClass, setSelectedClass, isDatasetReady, fetchingClassAndEpochs, datasetSelected}) => {
     return (
         <Select
             placeholder="Select class"
@@ -8,8 +8,9 @@ const SelectClass = ({classes, selectedClass, setSelectedClass, isDatasetReady})
                 {'label': class_label, 'value': index}
             ))}
             onChange={(class_id) => {setSelectedClass(class_id)}}
-            disabled={!isDatasetReady}
+            disabled={!isDatasetReady || !datasetSelected}
             value={selectedClass}
+            loading={fetchingClassAndEpochs}
         />
     )
 }

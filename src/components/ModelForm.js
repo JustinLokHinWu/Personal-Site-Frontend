@@ -13,7 +13,10 @@ const ModelForm = ({
     datasets,
     isDatasetReady,
     selectedDataset,
-    setSelectedDataset}) => {
+    setSelectedDataset,
+    fetchingDatasetLists,
+    fetchingClassAndEpochs
+}) => {
     
     const [selectedEpoch, setSelectedEpoch] = useState()
     const [selectedClass, setSelectedClass] = useState()
@@ -58,7 +61,7 @@ const ModelForm = ({
                     ))}
                     onChange={(dataset) => {setSelectedDataset(dataset)}}
                     // disabled={!isDatasetReady}
-                    // loading={!isDatasetReady}
+                    loading={fetchingDatasetLists}
                 />
             </Form.Item>
             <Form.Item
@@ -70,6 +73,8 @@ const ModelForm = ({
                     selectedEpoch={selectedEpoch}
                     setSelectedEpoch={setSelectedEpoch}
                     isDatasetReady={isDatasetReady}
+                    fetchingClassAndEpochs={fetchingClassAndEpochs}
+                    datasetSelected={selectedDataset!==undefined}
                 />
             </Form.Item>
 
@@ -82,6 +87,8 @@ const ModelForm = ({
                     selectedClass={selectedClass}
                     setSelectedClass={setSelectedClass}
                     isDatasetReady={isDatasetReady}
+                    fetchingClassAndEpochs={fetchingClassAndEpochs}
+                    datasetSelected={selectedDataset!==undefined}
                 />
             </Form.Item>
 
