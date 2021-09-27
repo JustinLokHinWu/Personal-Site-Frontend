@@ -9,7 +9,7 @@ const SelectClass = ({classes, selectedClass, setSelectedClass, isDatasetReady, 
             ))}
             onChange={(class_id) => {setSelectedClass(class_id)}}
             disabled={!isDatasetReady || !datasetSelected}
-            value={selectedClass}
+            value={datasetSelected ? selectedClass : null}
             loading={fetchingClassAndEpochs}
         />
     )

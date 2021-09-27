@@ -9,7 +9,7 @@ const SelectEpoch = ({epochs, selectedEpoch, setSelectedEpoch, isDatasetReady, f
             ))}
             onChange={(epoch) => {setSelectedEpoch(epoch)}}
             disabled={!isDatasetReady || !datasetSelected}
-            value={selectedEpoch}
+            value={datasetSelected ? selectedEpoch : null}
             loading={fetchingClassAndEpochs}
         />
     )
