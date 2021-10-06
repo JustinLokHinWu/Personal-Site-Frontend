@@ -15,7 +15,7 @@ function App() {
       <Header>
         <HeaderMenu />
       </Header>
-      <Content className="site-layout" style={{ padding: '0 5%' }}>
+      <Content className="site-layout" style={{ padding: '0 50px'}}>
         <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
           <Router>
             <div className="App-header"> 
