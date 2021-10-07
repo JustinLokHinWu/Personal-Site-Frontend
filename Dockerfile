@@ -7,16 +7,8 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 WORKDIR /app
 
-COPY ["package.json", "package-lock.json*", "./"]
-
-
-# COPY package.json ./
-# COPY package-lock.json ./
-# RUN npm install --production
-# COPY . .
-RUN npm install --silent
-RUN npm install react-scripts@3.4.1 -g --silent
+COPY ["package.json", "yarn.lock", "./"]
+RUN yarn install --no-progress && yarn build
 
 COPY . .
-
-CMD ["npm", "start"]
+RUN yarn start
