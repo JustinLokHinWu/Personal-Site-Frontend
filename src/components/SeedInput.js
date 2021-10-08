@@ -1,5 +1,6 @@
+import React from 'react'
 import { Input } from 'antd'
-import "antd/dist/antd.css";
+import "antd/dist/antd.css"
 
 const SeedInput = ({seed, setSeed}) => {
     const onChange = (e) => {
@@ -15,6 +16,7 @@ const SeedInput = ({seed, setSeed}) => {
 
     return (
         <Input
+            name='SeedInputForm'
             placeholder='Random'
             value={seed}
             onChange={onChange}
