@@ -12,10 +12,10 @@ const { Header, Content, Footer } = Layout;
 function App() {
   return (
     <Layout style={{ 'minHeight': '100vh'}}>
-      <Header>
+      <Header style={{ backgroundColor: 'white' }}>
         <HeaderMenu />
       </Header>
-      <Content className="site-layout" style={{ padding: '0 5%'}}>
+      <Content className="site-layout" style={{ padding: '0 20%'}}>
         <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
           <Router>
             <Route

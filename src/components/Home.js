@@ -9,14 +9,18 @@ const Home = () => {
         //     <Biography />
         //     <DemoList />
         // </div>
-        <Row>
-            <Col xs={24} md={8}>
-                <Biography />
-            </Col>
-            <Col xs={24} md={16}>
-                <DemoList />
-            </Col>
-        </Row>
+        <div>
+            <Biography />
+            <DemoList />
+        </div>
+        // <Row>
+        //     <Col xs={24} md={8}>
+        //         <Biography />
+        //     </Col>
+        //     <Col xs={24} md={16}>
+        //         <DemoList />
+        //     </Col>
+        // </Row>
     )
 }
 
