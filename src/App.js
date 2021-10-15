@@ -15,28 +15,26 @@ function App() {
       <Header>
         <HeaderMenu />
       </Header>
-      <Content className="site-layout" style={{ padding: '0 50px'}}>
+      <Content className="site-layout" style={{ padding: '0 5%'}}>
         <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
           <Router>
-            <div className="App-header"> 
-              <Route
-                path='/'
-                exact
-                render={() => (
-                  <Home />
-                  )}
-              />
-
-              <Route
-                path='/demos/actgan'
-                exact
-                render={() => (
-                  <ModelDemo
-                    info={ActganInfo}
-                    backendURL='http://localhost:8000/actgan' />
+            <Route
+              path='/'
+              exact
+              render={() => (
+                <Home />
                 )}
-              />
-            </div>
+            />
+
+            <Route
+              path='/demos/actgan'
+              exact
+              render={() => (
+                <ModelDemo
+                  info={ActganInfo}
+                  backendURL='http://localhost:8000/actgan' />
+              )}
+            />
           </Router>
         </div>
         </Content>
