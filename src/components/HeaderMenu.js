@@ -1,5 +1,7 @@
 import { Menu } from 'antd'
 
+import { HashLink } from 'react-router-hash-link'
+
 const HeaderMenu = () => {
     return (
         <Menu
@@ -7,22 +9,16 @@ const HeaderMenu = () => {
             mode='horizontal'
         >
             <Menu.Item
-                key='home'>
-                <a href="/" rel="noopener noreferrer">
-                    Home
-                </a>
-            </Menu.Item>
-            <Menu.Item
                 key='biography'>
-                <a href="/" rel="noopener noreferrer">
-                    Biography
-                </a>
+                <HashLink
+                    scroll={(el) => el.scrollIntoView({ behavior: 'smooth' })}
+                    to='#biography'>Biography</HashLink>
             </Menu.Item>
             <Menu.Item
                 key='demos'>
-                <a href="/" rel="noopener noreferrer">
-                    Demos
-                </a>
+                <HashLink
+                    scroll={(el) => el.scrollIntoView({ behavior: 'smooth' })}
+                    to='#demos'>Demos</HashLink>
             </Menu.Item>
         </Menu>
     )

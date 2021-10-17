@@ -6,9 +6,10 @@ const IconButton = ({ icon, text, link }) => {
     return (
         <Button
             type='link'
-            href={link}>
+            href={link}
+        >
             {React.createElement(icon)}
-            {text}
+            {text ? text : null}
         </Button>
     )
 }
