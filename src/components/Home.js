@@ -1,5 +1,3 @@
-import { Row, Col } from 'antd'
-
 import DemoList from "./DemoList"
 import Biography from "./Biography"
 
@@ -10,8 +8,13 @@ const Home = () => {
         //     <DemoList />
         // </div>
         <div>
-            <Biography />
-            <DemoList />
+            <section id='biography'>
+                <Biography/>
+            </section>
+            <section id='demos'>
+                <h1 style={{ textAlign: 'center' }}>Demos</h1>
+                <DemoList />
+            </section>
         </div>
         // <Row>
         //     <Col xs={24} md={8}>
