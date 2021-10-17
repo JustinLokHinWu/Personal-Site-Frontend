@@ -1,6 +1,6 @@
 import { Menu } from 'antd'
 
-import { HashLink } from 'react-router-hash-link'
+import { HashLink as Link } from 'react-router-hash-link'
 
 const HeaderMenu = () => {
     return (
@@ -10,15 +10,15 @@ const HeaderMenu = () => {
         >
             <Menu.Item
                 key='biography'>
-                <HashLink
+                <Link
                     scroll={(el) => el.scrollIntoView({ behavior: 'smooth' })}
-                    to='#biography'>Biography</HashLink>
+                    to='/#biography'>Biography</Link>
             </Menu.Item>
             <Menu.Item
                 key='demos'>
-                <HashLink
+                <Link
                     scroll={(el) => el.scrollIntoView({ behavior: 'smooth' })}
-                    to='#demos'>Demos</HashLink>
+                    to='/#demos'>Demos</Link>
             </Menu.Item>
         </Menu>
     )

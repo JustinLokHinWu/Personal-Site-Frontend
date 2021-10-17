@@ -12,23 +12,17 @@ const { Header, Content, Footer } = Layout;
 
 function App() {
   return (
-    <Layout style={{ 'minHeight': '100vh'}}>
-      
-      <Content className="site-layout">
-        <Affix>
-        <Router>
-            <Route path='/' exact>
-              {/* <HomeNavigation /> */}
-              <HeaderMenu />
-            </Route>
-        </Router>
-        </Affix>
-        <Col
-          className="site-layout-background"
-          xs={24} sm={24} md={16} lg={14} xl={12}
-          style={{ padding: '30px 5%', minHeight: 380, margin: 'auto'}}
-        >
-          <Router>
+    <Router>
+      <Layout style={{ 'minHeight': '100vh'}}>
+        <Content className="site-layout">
+          <Affix>
+            <HeaderMenu />
+          </Affix>
+          <Col
+            className="site-layout-background"
+            xs={24} sm={24} md={16} lg={14} xl={12}
+            style={{ padding: '30px 5%', minHeight: 380, margin: 'auto'}}
+          >
             <Route
               path='/'
               exact
@@ -46,11 +40,11 @@ function App() {
                   backendURL='http://localhost:8000/actgan' />
               )}
             />
-          </Router>
-        </Col>
-        </Content>
-      <Footer style={{ textAlign: 'center' }}>Justin Wu &#xA9;2021</Footer>
-    </Layout>
+          </Col>
+          </Content>
+        <Footer style={{ textAlign: 'center' }}>Justin Wu &#xA9;2021</Footer>
+      </Layout>
+    </Router>
   );
 }
 
