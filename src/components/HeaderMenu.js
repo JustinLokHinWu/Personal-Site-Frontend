@@ -1,6 +1,7 @@
 import { Menu } from 'antd'
 
 import { HashLink as Link } from 'react-router-hash-link'
+import { HomeOutlined } from '@ant-design/icons'
 
 const HeaderMenu = () => {
     return (
@@ -8,6 +9,12 @@ const HeaderMenu = () => {
             theme='light'
             mode='horizontal'
         >
+            <Menu.Item
+                key='home'>
+                <Link
+                    scroll={(el) => el.scrollIntoView({ behavior: 'smooth' })}
+                    to='/'><HomeOutlined /></Link>
+            </Menu.Item>
             <Menu.Item
                 key='biography'>
                 <Link
