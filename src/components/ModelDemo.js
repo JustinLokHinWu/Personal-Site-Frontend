@@ -141,7 +141,7 @@ const ModelDemo = ({ info, backendURL }) => {
             </PageHeader>
             <Divider />
             <Row justify='space-around'>
-                <Col xs={24} md={12} lg={8}>
+                <Col xs={24} md={12} lg={12}>
                 <ModelForm
                     epochs={epochs}
                     classes={classes}
@@ -155,7 +155,7 @@ const ModelDemo = ({ info, backendURL }) => {
                     fetchingClassAndEpochs={fetchingClassAndEpochs}
                     />
                 </Col>
-                <Col xs={24} md={12} lg={16} style={{ overflowY:'auto', overflowX:'hidden', height:'60vh'}}>
+                <Col xs={24} md={12} lg={12} style={{ overflowY:'auto', overflowX:'hidden', height:'60vh'}}>
                     <ModelDisplay images={images} />
                 </Col>
             </Row>

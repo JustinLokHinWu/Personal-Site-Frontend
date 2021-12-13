@@ -20,7 +20,7 @@ function App() {
           </Affix>
           <Col
             className="site-layout-background"
-            xs={24} sm={24} md={16} lg={14} xl={12}
+            xs={24} sm={24} md={20} lg={18} xl={16}
             style={{ padding: '30px 5%', minHeight: 380, margin: 'auto'}}
           >
             <Route
