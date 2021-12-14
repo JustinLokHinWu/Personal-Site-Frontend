@@ -1,5 +1,7 @@
 import DemoList from "./DemoList"
 import Biography from "./Biography"
+import { Typography, Divider } from "antd"
+const { Title } = Typography
 
 const Home = () => {
     return (
@@ -11,10 +13,12 @@ const Home = () => {
             <section id='biography'>
                 <Biography/>
             </section>
+            <Divider />
             <section id='demos'>
-                <h1 style={{ textAlign: 'center' }}>Demos</h1>
+                <Title level={3} style={{'textAlign': 'center'}}>Demos</Title>
                 <DemoList />
             </section>
+            
         </div>
         // <Row>
         //     <Col xs={24} md={8}>
