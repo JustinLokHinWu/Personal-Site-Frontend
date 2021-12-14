@@ -1,15 +1,27 @@
-import { GithubFilled } from '@ant-design/icons';
+import { GithubFilled, CodeOutlined } from '@ant-design/icons';
 
 export const ActganInfo = {
     title: "ACTGAN",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum tempor orci vitae tincidunt. Morbi vitae ipsum lacus. Donec tempus neque maximus risus viverra tristique. Mauris sit amet molestie ipsum. Maecenas iaculis massa et dolor porta consectetur. Fusce ultricies egestas egestas. Mauris aliquam id massa ac mollis. Maecenas quis ligula varius, eleifend lorem accumsan, convallis dui. Cras tempus pellentesque volutpat. Suspendisse euismod pellentesque volutpat. Nulla volutpat molestie neque, eget sodales mauris tempus vel. Nullam facilisis, felis non luctus mattis, massa sapien tristique augue, tristique lobortis nulla arcu at diam. Nam facilisis condimentum nisi. Fusce lorem felis, venenatis in pharetra non, pretium ut sem. Pellentesque volutpat ex eros, quis venenatis ligula finibus eu. Curabitur dignissim magna ut aliquet luctus.",
+    description: "Multiclass-conditioned novel image generation",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ex nulla, tincidunt sed faucibus eget, dignissim eu ligula. Vivamus congue erat egestas tempor vestibulum. Duis pharetra felis lacinia imperdiet viverra. Fusce egestas, mauris a cursus suscipit, turpis mi imperdiet lectus, et fermentum ipsum massa in elit.",
     page_path: "/demos/actgan",
     links: [
-        {'text': 'ACTGAN', 'link': 'https://github.com/JustinLokHinWu/ACTGAN', 'icon': GithubFilled},
-        {'text': 'Microservice', 'link': 'https://github.com/JustinLokHinWu/ACTGAN-Service', 'icon': GithubFilled},
+        {'text': 'Demo', 'link': '/demos/actgan', 'icon': CodeOutlined},
+        {'text': 'Model', 'link': 'https://github.com/JustinLokHinWu/ACTGAN', 'icon': GithubFilled},
+        {'text': 'Service', 'link': 'https://github.com/JustinLokHinWu/ACTGAN-Service', 'icon': GithubFilled},
+    ]
+}
+
+export const PersonalSiteInfo = {
+    title: "Personal Site",
+    description: "Description",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ex nulla, tincidunt sed faucibus eget, dignissim eu ligula. Vivamus congue erat egestas tempor vestibulum. Duis pharetra felis lacinia imperdiet viverra. Fusce egestas, mauris a cursus suscipit, turpis mi imperdiet lectus, et fermentum ipsum massa in elit.",
+    links: [
+        {'text': 'Source Code', 'link': 'https://github.com/JustinLokHinWu/Personal-Website', 'icon': GithubFilled}
     ]
 }
 
 export const DemoInfo = [
-    ActganInfo
+    ActganInfo,
+    PersonalSiteInfo
 ]
