@@ -3,9 +3,10 @@ import 'antd/dist/antd.css';
 
 import IconButton from './IconButton';
 
-const DemoListItem = ({ title, description, content, links }) => {
+const DemoListItem = ({ key, title, description, content, links }) => {
     return (
         <List.Item
+            key={key}
             actions={
                 links.map(entry => 
                     <IconButton

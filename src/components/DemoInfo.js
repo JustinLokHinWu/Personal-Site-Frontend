@@ -1,6 +1,7 @@
 import { GithubFilled, CodeOutlined } from '@ant-design/icons';
 
 export const ActganInfo = {
+    key: "actgan",
     title: "ACTGAN",
     description: "Multiclass-conditioned novel image generation",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ex nulla, tincidunt sed faucibus eget, dignissim eu ligula. Vivamus congue erat egestas tempor vestibulum. Duis pharetra felis lacinia imperdiet viverra. Fusce egestas, mauris a cursus suscipit, turpis mi imperdiet lectus, et fermentum ipsum massa in elit.",
@@ -13,6 +14,7 @@ export const ActganInfo = {
 }
 
 export const PersonalSiteInfo = {
+    key: "personalsite",
     title: "Personal Site",
     description: "Description",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ex nulla, tincidunt sed faucibus eget, dignissim eu ligula. Vivamus congue erat egestas tempor vestibulum. Duis pharetra felis lacinia imperdiet viverra. Fusce egestas, mauris a cursus suscipit, turpis mi imperdiet lectus, et fermentum ipsum massa in elit.",

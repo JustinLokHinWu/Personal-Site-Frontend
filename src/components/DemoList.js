@@ -13,6 +13,7 @@ const DemoList = () => {
             dataSource={demos}
             renderItem={(item) => (
                 <DemoListItem
+                    key={item.key}
                     title={item.title}
                     description={item.description}
                     content={item.content}
