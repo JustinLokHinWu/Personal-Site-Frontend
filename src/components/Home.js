@@ -1,6 +1,7 @@
 import DemoList from "./DemoList"
 import Biography from "./Biography"
 import { Typography, Divider } from "antd"
+import ExperienceList from "./ExperienceList"
 const { Title } = Typography
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
             <Divider />
             <section id='experience'>
                 <Title level={3} style={{'textAlign': 'center'}}>Experience</Title>
+                <ExperienceList />
             </section>
         </div>
         // <Row>
