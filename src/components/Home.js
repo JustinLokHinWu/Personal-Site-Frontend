@@ -18,7 +18,10 @@ const Home = () => {
                 <Title level={3} style={{'textAlign': 'center'}}>Demos</Title>
                 <DemoList />
             </section>
-            
+            <Divider />
+            <section id='experience'>
+                <Title level={3} style={{'textAlign': 'center'}}>Experience</Title>
+            </section>
         </div>
         // <Row>
         //     <Col xs={24} md={8}>
