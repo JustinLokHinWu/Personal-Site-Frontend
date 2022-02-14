@@ -8,7 +8,7 @@ const ExperienceList = () => {
     const entries = [
         {
             key: 'uoftbachelor',
-            title: 'University of Toronto',
+            title: 'University of Toronto St. George',
             description: 'September 2016 - June 2021',
             content: 'Honours Bachelor of Science with High Distinction. Computer Science Specialist with a focus in artificial intelligence',
             image: image_uoft,
