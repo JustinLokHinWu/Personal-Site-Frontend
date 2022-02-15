@@ -1,4 +1,5 @@
 import { GithubFilled, CodeOutlined } from '@ant-design/icons';
+import actgan_image from "../assets/images/caseware.png"
 
 export const ActganInfo = {
     key: "actgan",
@@ -10,7 +11,9 @@ export const ActganInfo = {
         {'text': 'Demo', 'link': '/demos/actgan', 'icon': CodeOutlined},
         {'text': 'Model', 'link': 'https://github.com/JustinLokHinWu/ACTGAN', 'icon': GithubFilled},
         {'text': 'Service', 'link': 'https://github.com/JustinLokHinWu/ACTGAN-Service', 'icon': GithubFilled},
-    ]
+    ],
+    image: actgan_image,
+    image_alt: "ACTGAN"
 }
 
 export const PersonalSiteInfo = {

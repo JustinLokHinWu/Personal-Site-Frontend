@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 
 import IconButton from './IconButton';
 
-const DemoListItem = ({ key, title, description, content, links }) => {
+const DemoListItem = ({ key, title, description, content, links, image, image_alt }) => {
     return (
         <List.Item
             key={key}
@@ -15,6 +15,13 @@ const DemoListItem = ({ key, title, description, content, links }) => {
                         link={entry.link}
                     />
                 )
+            }
+            extra={
+                <img
+                    src={image}
+                    alt={image_alt}
+                    width={100}
+                />
             }
         >
             <List.Item.Meta

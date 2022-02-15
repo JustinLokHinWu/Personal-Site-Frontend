@@ -19,6 +19,8 @@ const DemoList = () => {
                     content={item.content}
                     demoPath={item.page_path}
                     links={item.links}
+                    image={item.image}
+                    image_alt={item.image_alt}
                 />
             )}
         />
