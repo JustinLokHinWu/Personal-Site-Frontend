@@ -8,7 +8,11 @@ ENV PATH /app/node_modules/.bin:$PATH
 WORKDIR /app
 
 COPY ["package.json", "yarn.lock", "./"]
-RUN yarn install --no-progress && yarn build
+RUN yarn install --no-progress
 
-COPY . .
-RUN yarn start
+COPY . ./
+
+RUN yarn build
+
+CMD ["yarn", "start"]
+# CMD ["serve", "-s", "build"]

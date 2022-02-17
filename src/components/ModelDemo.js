@@ -4,6 +4,7 @@ import ModelForm from './ModelForm'
 import ModelDisplay from './ModelDisplay'
 import { Divider, PageHeader, Row, Col, Descriptions, message, Button } from 'antd'
 import DescriptionsItem from 'antd/lib/descriptions/Item'
+import { useHistory } from 'react-router'
 
 const ModelDemo = ({ info, backendURL }) => {
     const [datasets, setDatasets] = useState([])
@@ -17,6 +18,8 @@ const ModelDemo = ({ info, backendURL }) => {
     const [isRequesting, setIsRequesting] = useState(false)
     const [fetchingDatasetLists, setFetchingDatasetLists] = useState(false)
     const [fetchingClassAndEpochs, setfetchingClassAndEpochs] = useState(false)
+
+    const history = useHistory()
 
     const fetchImage = async (dataset, epoch, class_id, seed) => {
         setIsRequesting(true)
@@ -117,6 +120,7 @@ const ModelDemo = ({ info, backendURL }) => {
             <PageHeader
                 className='site-page-header'
                 title={info.title}
+                onBack={() => history.goBack()}
             >
                 <Descriptions column={1} size='small'>
                     <DescriptionsItem>
@@ -137,7 +141,7 @@ const ModelDemo = ({ info, backendURL }) => {
             </PageHeader>
             <Divider />
             <Row justify='space-around'>
-                <Col xs={24} md={12} lg={8}>
+                <Col xs={24} md={12} lg={12}>
                 <ModelForm
                     epochs={epochs}
                     classes={classes}
@@ -151,7 +155,7 @@ const ModelDemo = ({ info, backendURL }) => {
                     fetchingClassAndEpochs={fetchingClassAndEpochs}
                     />
                 </Col>
-                <Col xs={24} md={12} lg={16} style={{ overflowY:'auto', overflowX:'hidden', height:'60vh'}}>
+                <Col xs={24} md={12} lg={12} style={{ overflowY:'auto', overflowX:'hidden', height:'60vh'}}>
                     <ModelDisplay images={images} />
                 </Col>
             </Row>
