@@ -12,6 +12,7 @@ RUN yarn install --no-progress
 
 COPY . ./
 
-# RUN yarn build
+RUN yarn build
 
-RUN yarn start
+CMD ["yarn", "start"]
+# CMD ["serve", "-s", "build"]
