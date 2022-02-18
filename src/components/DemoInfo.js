@@ -1,5 +1,6 @@
 import { GithubFilled, CodeOutlined } from '@ant-design/icons';
-import actgan_image from "../assets/images/caseware.png"
+import actgan_image from "../assets/images/ACTGAN.png"
+import site_image from "../assets/images/site.png"
 
 export const ActganInfo = {
     key: "actgan",
@@ -23,7 +24,9 @@ export const PersonalSiteInfo = {
     content: "This site consists of a React frontend communicating with microservices deployed behind a Kong API gateway. All microservices are dockerized and deployed on AWS.",
     links: [
         {'text': 'Source Code', 'link': 'https://github.com/JustinLokHinWu/Personal-Website', 'icon': GithubFilled}
-    ]
+    ],
+    image: site_image,
+    image_alt: "Personal website"
 }
 
 export const DemoInfo = [
