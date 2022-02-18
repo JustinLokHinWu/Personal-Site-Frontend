@@ -1,8 +1,6 @@
-import { Affix, Anchor, Button } from 'antd'
-import { useState, useEffect } from 'react'
+import { Affix, Anchor } from 'antd'
 import { BarsOutlined } from '@ant-design/icons'
 import IconButton from './IconButton'
-
 
 const { Link } = Anchor
 

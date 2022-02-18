@@ -1,5 +1,4 @@
 import { GithubFilled, LinkedinFilled, MailFilled } from '@ant-design/icons';
-import { message, Tooltip } from 'antd';
 import React from 'react'
 import IconButton from './IconButton';
 
@@ -21,7 +20,7 @@ const Socials = () => {
                 text={''}
                 tooltip='Copied to clipboard'
                 onClick={() => {
-                    navigator.clipboard.writeText('justin4827@gmail.com')
+                    navigator.clipboard.writeText('JustinLHWu@gmail.com')
                 }}
             />
         </div>

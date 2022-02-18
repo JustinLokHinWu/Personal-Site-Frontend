@@ -1,4 +1,4 @@
-import { Avatar, List } from 'antd'
+import { List } from 'antd'
 import 'antd/dist/antd.css';
 
 import IconButton from './IconButton';
