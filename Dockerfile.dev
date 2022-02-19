@@ -15,4 +15,3 @@ COPY . ./
 RUN yarn build
 
 CMD ["yarn", "start"]
-# CMD ["serve", "-s", "build"]
