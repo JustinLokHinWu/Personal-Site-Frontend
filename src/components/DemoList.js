@@ -6,7 +6,6 @@ import { DemoInfo } from './DemoInfo'
 const DemoList = () => {
     const demos = DemoInfo
     return (
-        // TODO: migrate descriptions, etc. to web service
         <List
             itemLayout="vertical"
             size="large"
