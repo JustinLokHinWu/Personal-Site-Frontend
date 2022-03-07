@@ -5,7 +5,8 @@ import 'antd/dist/antd.css';
 import ModelDemo from './components/ModelDemo'
 import HeaderMenu from './components/HeaderMenu';
 import Home from './components/Home';
-import { ActganInfo } from './components/DemoInfo'
+import { ActganInfo } from './components/ArticleInfo'
+import Article from './components/Article';
 
 const { Content, Footer } = Layout;
 
@@ -37,6 +38,16 @@ function App() {
                 <ModelDemo
                   info={ActganInfo}
                   backendURL='http://localhost:8000/actgan' />
+              )}
+            />
+
+            <Route
+              path='/articles/personal-site'
+              exact
+              render={() => (
+                <Article
+
+                />
               )}
             />
           </Col>

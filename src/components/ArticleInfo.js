@@ -1,4 +1,4 @@
-import { GithubFilled, CodeOutlined } from '@ant-design/icons';
+import { GithubFilled, CodeOutlined, ReadOutlined } from '@ant-design/icons';
 import actgan_image from "../assets/images/ACTGAN.png"
 import site_image from "../assets/images/site.png"
 
@@ -23,13 +23,14 @@ export const PersonalSiteInfo = {
     description: "Description",
     content: "This site consists of a React frontend communicating with microservices deployed behind a Kong API gateway. All microservices are dockerized and deployed on AWS.",
     links: [
+        {'text': "Read More", 'link': '/articles/personal-site', 'icon': ReadOutlined},
         {'text': 'Source Code', 'link': 'https://github.com/JustinLokHinWu/Personal-Website', 'icon': GithubFilled}
     ],
     image: site_image,
     image_alt: "Personal website"
 }
 
-export const DemoInfo = [
+export const ArticleInfo = [
     ActganInfo,
     PersonalSiteInfo
 ]
