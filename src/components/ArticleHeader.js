@@ -1,16 +1,16 @@
 import React from 'react'
 import DescriptionsItem from 'antd/lib/descriptions/Item'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 import { PageHeader, Descriptions, Button } from 'antd'
 
 const ArticleHeader = ({ info }) => {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   return (
     <PageHeader
       className='site-page-header'
       title={info.title}
-      onBack={() => history.goBack()}
+      onBack={() => navigate('/')}
     >
       <Descriptions column={1} size='small'>
         <DescriptionsItem>
