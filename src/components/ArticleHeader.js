@@ -10,7 +10,7 @@ const ArticleHeader = ({ info }) => {
     <PageHeader
       className='site-page-header'
       title={info.title}
-      onBack={() => navigate('/')}
+      onBack={() => navigate(-1)}
     >
       <Descriptions column={1} size='small'>
         <DescriptionsItem>
