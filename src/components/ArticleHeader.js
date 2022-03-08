@@ -18,7 +18,7 @@ const ArticleHeader = ({ info }) => {
         </DescriptionsItem>
         <DescriptionsItem> 
         {
-          info.links.map(entry => 
+          info.links.filter(entry => !('isArticleLink' in entry)).map(entry => 
             <Button
               type='link'
               href={entry.link}>
