@@ -2,11 +2,11 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Affix, Layout, Col } from 'antd'
 import 'antd/dist/antd.css';
-import ModelDemo from './components/ModelDemo'
 import HeaderMenu from './components/HeaderMenu';
 import Home from './components/Home';
-import { ActganInfo } from './components/ArticleInfo'
-import Article from './components/Article';
+import { ActganInfo, PersonalSiteInfo } from './components/ArticleInfo'
+import PersonalSiteArticle from './components/Articles/PersonalSiteArticle';
+import ActganArticle from './components/Articles/ActganArticle';
 
 const { Content, Footer } = Layout;
 
@@ -35,7 +35,7 @@ function App() {
               path='/demos/actgan'
               exact
               render={() => (
-                <ModelDemo
+                <ActganArticle
                   info={ActganInfo}
                   backendURL='http://localhost:8000/actgan' />
               )}
@@ -45,8 +45,8 @@ function App() {
               path='/articles/personal-site'
               exact
               render={() => (
-                <Article
-
+                <PersonalSiteArticle
+                  info={PersonalSiteInfo}
                 />
               )}
             />

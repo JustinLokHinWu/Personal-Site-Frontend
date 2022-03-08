@@ -1,6 +1,7 @@
 import { GithubFilled, CodeOutlined, ReadOutlined } from '@ant-design/icons';
 import actgan_image from "../assets/images/ACTGAN.png"
 import site_image from "../assets/images/site.png"
+import PersonalSiteArticle from './Articles/PersonalSiteArticle';
 
 export const ActganInfo = {
     key: "actgan",
@@ -14,7 +15,8 @@ export const ActganInfo = {
         {'text': 'Service', 'link': 'https://github.com/JustinLokHinWu/ACTGAN-Service', 'icon': GithubFilled},
     ],
     image: actgan_image,
-    image_alt: "ACTGAN"
+    image_alt: "ACTGAN",
+    // article: 
 }
 
 export const PersonalSiteInfo = {
@@ -27,7 +29,8 @@ export const PersonalSiteInfo = {
         {'text': 'Source Code', 'link': 'https://github.com/JustinLokHinWu/Personal-Website', 'icon': GithubFilled}
     ],
     image: site_image,
-    image_alt: "Personal website"
+    image_alt: "Personal website",
+    article: PersonalSiteArticle
 }
 
 export const ArticleInfo = [
