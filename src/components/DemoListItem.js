@@ -1,9 +1,11 @@
-import { Avatar, List } from 'antd'
+import { List } from 'antd'
 import 'antd/dist/antd.css';
+import { useNavigate } from 'react-router-dom';
 
 import IconButton from './IconButton';
 
 const DemoListItem = ({ key, title, description, content, links, image, image_alt }) => {
+    const navigate = useNavigate()
     return (
         <List.Item
             key={key}
@@ -12,6 +14,7 @@ const DemoListItem = ({ key, title, description, content, links, image, image_al
                     <IconButton
                         icon={entry.icon}
                         text={entry.text}
+                        onClick={() => entry.isInternalLink ? navigate(entry.link) : null}
                         link={entry.link}
                     />
                 )

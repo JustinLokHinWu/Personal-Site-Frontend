@@ -2,9 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ModelForm from './ModelForm'
 import ModelDisplay from './ModelDisplay'
-import { Divider, PageHeader, Row, Col, Descriptions, message, Button } from 'antd'
-import DescriptionsItem from 'antd/lib/descriptions/Item'
-import { useHistory } from 'react-router'
+import { Divider, Row, Col, message } from 'antd'
 
 const ModelDemo = ({ info, backendURL }) => {
     const [datasets, setDatasets] = useState([])
@@ -18,8 +16,6 @@ const ModelDemo = ({ info, backendURL }) => {
     const [isRequesting, setIsRequesting] = useState(false)
     const [fetchingDatasetLists, setFetchingDatasetLists] = useState(false)
     const [fetchingClassAndEpochs, setfetchingClassAndEpochs] = useState(false)
-
-    const history = useHistory()
 
     const fetchImage = async (dataset, epoch, class_id, seed) => {
         setIsRequesting(true)
@@ -117,29 +113,6 @@ const ModelDemo = ({ info, backendURL }) => {
 
     return (
         <div>
-            <PageHeader
-                className='site-page-header'
-                title={info.title}
-                onBack={() => history.goBack()}
-            >
-                <Descriptions column={1} size='small'>
-                    <DescriptionsItem>
-                        {info.description}
-                    </DescriptionsItem>
-                    <DescriptionsItem> 
-                    {
-                        info.links.map(entry => 
-                            <Button
-                                type='link'
-                                href={entry.link}>
-                                    <entry.icon />{entry.text}
-                            </Button>
-                        )
-                    }
-                    </DescriptionsItem>
-                </Descriptions>
-            </PageHeader>
-            <Divider />
             <Row justify='space-around'>
                 <Col xs={24} md={12} lg={12}>
                 <ModelForm

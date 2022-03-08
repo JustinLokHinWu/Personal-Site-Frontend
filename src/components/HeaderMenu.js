@@ -30,15 +30,17 @@ const HeaderMenu = () => {
             <Menu.Item
                 key='home'>
                 <Link
-                    scroll={(el) => el.scrollIntoView({ behavior: 'smooth' })}
-                    to='/'><HomeOutlined /></Link>
+                    // scroll={(el) => el.scrollIntoView({ behavior: 'smooth' })}
+                    smooth
+                    to='/#'><HomeOutlined /></Link>
             </Menu.Item>
             {
                 entries.map(entry => 
                     <Menu.Item
                         key={entry.key}>
                         <Link
-                            scroll={(el) => el.scrollIntoView({ behavior: 'smooth' })}
+                            // scroll={(el) => el.scrollIntoView({ behavior: 'smooth' })}
+                            smooth
                             to={entry.to}>{entry.text}</Link>
                     </Menu.Item>
                 )

@@ -1,5 +1,7 @@
-import { GithubFilled, CodeOutlined } from '@ant-design/icons';
-import actgan_image from "../assets/images/caseware.png"
+import { GithubFilled, CodeOutlined, ReadOutlined } from '@ant-design/icons';
+import actgan_image from "../assets/images/ACTGAN.png"
+import site_image from "../assets/images/site.png"
+import PersonalSiteArticle from './Articles/PersonalSiteArticle';
 
 export const ActganInfo = {
     key: "actgan",
@@ -8,25 +10,28 @@ export const ActganInfo = {
     content: "ACTGAN belongs to a class of machine learning models called GANs (generative adversarial networks) that learn to generate completely novel data (i.e. images) that resemble the training data. ACTGAN is a multiclass-conditioned GAN, meaning it can generate completely different classes (ex. images of dogs, cats, etc.) depending on a class input. It extends on AC-GAN (Auxillary Classifier Generative Adversarial Network), using a transformer-based architecture for the \"discriminator\" network. ACTGAN was designed and implemented with a partner as a final project for a machine learning course. ",
     page_path: "/demos/actgan",
     links: [
-        {'text': 'Demo', 'link': '/demos/actgan', 'icon': CodeOutlined},
-        {'text': 'Model', 'link': 'https://github.com/JustinLokHinWu/ACTGAN', 'icon': GithubFilled},
-        {'text': 'Service', 'link': 'https://github.com/JustinLokHinWu/ACTGAN-Service', 'icon': GithubFilled},
+        {'text': 'Demo', 'link': '/demos/actgan', 'icon': CodeOutlined, 'isArticleLink': true, 'isInternalLink': true},
+        {'text': 'Model', 'link': 'https://github.com/JustinLokHinWu/ACTGAN', 'icon': GithubFilled, 'isInternalLink': false},
+        {'text': 'Service', 'link': 'https://github.com/JustinLokHinWu/ACTGAN-Service', 'icon': GithubFilled,  'isInternalLink': false},
     ],
     image: actgan_image,
-    image_alt: "ACTGAN"
+    image_alt: "ACTGAN",
 }
 
 export const PersonalSiteInfo = {
     key: "personalsite",
     title: "Personal Site",
-    description: "Description",
+    description: "React frontend interfacing with a microservice backend, hosted on AWS",
     content: "This site consists of a React frontend communicating with microservices deployed behind a Kong API gateway. All microservices are dockerized and deployed on AWS.",
     links: [
-        {'text': 'Source Code', 'link': 'https://github.com/JustinLokHinWu/Personal-Website', 'icon': GithubFilled}
-    ]
+        {'text': "Read More", 'link': '/articles/personal-site', 'icon': ReadOutlined, 'isArticleLink': true, 'isInternalLink': true},
+        {'text': 'Source Code', 'link': 'https://github.com/JustinLokHinWu/Personal-Website', 'icon': GithubFilled, 'isInternalLink': false}
+    ],
+    image: site_image,
+    image_alt: "Personal website",
 }
 
-export const DemoInfo = [
+export const ArticleInfo = [
     ActganInfo,
     PersonalSiteInfo
 ]

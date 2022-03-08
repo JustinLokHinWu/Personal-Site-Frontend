@@ -1,12 +1,11 @@
 import 'antd/dist/antd.css';
 import { List } from 'antd'
 import DemoListItem from './DemoListItem';
-import { DemoInfo } from './DemoInfo'
+import { ArticleInfo } from './ArticleInfo'
 
 const DemoList = () => {
-    const demos = DemoInfo
+    const demos = ArticleInfo
     return (
-        // TODO: migrate descriptions, etc. to web service
         <List
             itemLayout="vertical"
             size="large"
