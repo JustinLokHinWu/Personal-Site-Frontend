@@ -24,7 +24,7 @@ const routes = [
 const ContentRoutes = () => {
   const location = useLocation()
   return (
-    <TransitionGroup component={null}>
+    <TransitionGroup component={null} appear={true}>
       <CSSTransition key={location.pathname} classNames='fade' timeout={300}>
         <Routes location={location}>
           {routes.map(({ path, component }) => (
