@@ -25,7 +25,7 @@ export const PersonalSiteInfo = {
     content: "This site consists of a React frontend communicating with microservices deployed behind a Kong API gateway. All microservices are dockerized and deployed on AWS.",
     links: [
         {'text': "Read More", 'link': '/articles/personal-site', 'icon': ReadOutlined, 'isArticleLink': true, 'isInternalLink': true},
-        {'text': 'Source Code', 'link': 'https://github.com/JustinLokHinWu/Personal-Website', 'icon': GithubFilled, 'isInternalLink': false}
+        {'text': 'Source Code', 'link': 'https://github.com/JustinLokHinWu/personal-site-frontend', 'icon': GithubFilled, 'isInternalLink': false}
     ],
     image: site_image,
     image_alt: "Personal website",
