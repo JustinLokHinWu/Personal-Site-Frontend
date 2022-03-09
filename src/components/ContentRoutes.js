@@ -5,6 +5,7 @@ import { ActganInfo, PersonalSiteInfo } from './ArticleInfo'
 import PersonalSiteArticle from './Articles/PersonalSiteArticle';
 import ActganArticle from './Articles/ActganArticle';
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import { backendURL } from './ApiClient'
 
 const routes = [
   { path: '/', name: 'Home',
@@ -14,7 +15,7 @@ const routes = [
     component:
     <ActganArticle
       info={ActganInfo}
-      backendURL='http://localhost:8000/actgan' />},
+      backendURL={backendURL + '/actgan'} />},
   { path: '/articles/personal-site', name: 'Personal Site',
     component:
       <PersonalSiteArticle
