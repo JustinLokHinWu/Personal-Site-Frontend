@@ -15,7 +15,7 @@ const ModelDemo = ({ info, backendURL }) => {
     const [isDatasetReady, setIsDatasetReady] = useState(false)
     const [isRequesting, setIsRequesting] = useState(false)
     const [fetchingDatasetLists, setFetchingDatasetLists] = useState(false)
-    const [fetchingClassAndEpochs, setfetchingClassAndEpochs] = useState(false)
+    const [fetchingClassAndEpochs, setFetchingClassAndEpochs] = useState(false)
 
     const fetchImage = async (dataset, epoch, class_id, seed) => {
         setIsRequesting(true)
@@ -61,12 +61,13 @@ const ModelDemo = ({ info, backendURL }) => {
             }).catch((error) => {
                 console.log(error)
                 message.error('Failed to get datasets')
+            }).finally(() => {
+                setFetchingDatasetLists(false)
             })
         }
         setIsDatasetReady(false)
         setFetchingDatasetLists(true)
         fetchDatasets()
-        setFetchingDatasetLists(false)
 
     }, [backendURL])
 
@@ -98,13 +99,14 @@ const ModelDemo = ({ info, backendURL }) => {
                     setIsDatasetReady(true)
                 })).catch(errors => {
                     console.log(errors)
+                }).finally(() => {
+                    setFetchingClassAndEpochs(false)
                 })
         }
 
         if (selectedDataset) {
-            setfetchingClassAndEpochs(true)
+            setFetchingClassAndEpochs(true)
             fetchEpochsAndClasses(selectedDataset)
-            setfetchingClassAndEpochs(false)
         }
     }, [backendURL, selectedDataset, datasets.length])
 

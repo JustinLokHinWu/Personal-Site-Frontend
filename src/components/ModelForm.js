@@ -18,8 +18,8 @@ const ModelForm = ({
     fetchingClassAndEpochs
 }) => {
     
-    const [selectedEpoch, setSelectedEpoch] = useState()
-    const [selectedClass, setSelectedClass] = useState()
+    const [selectedEpoch, setSelectedEpoch] = useState(null)
+    const [selectedClass, setSelectedClass] = useState(null)
     const [seed, setSeed] = useState(null)
 
     const generateRandomSeed = () => {
@@ -108,7 +108,10 @@ const ModelForm = ({
                         marginBottom:'10px'
                     }}
                     loading={isRequesting}
-                    disabled={!isDatasetReady}>Generate Image</Button>
+                    disabled={!isDatasetReady 
+                        || fetchingClassAndEpochs
+                        || selectedClass == null 
+                        || selectedEpoch == null }>Generate Image</Button>
             </Form.Item>
         </Form>
     )
