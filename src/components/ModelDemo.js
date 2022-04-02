@@ -19,19 +19,21 @@ const ModelDemo = ({ info, backendURL }) => {
 
     const fetchImage = async (dataset, epoch, class_id, seed) => {
         setIsRequesting(true)
-        axios.post(
+        axios.get(
             `${backendURL}/generate`,
             {
-                'class_id': class_id,
-                'epoch': epoch,
-                'dataset': dataset,
-                ...(seed !== null && { 'seed': seed })
-            },
-            {
+                'params': {
+                    'class_id': class_id,
+                    'epoch': epoch,
+                    'dataset': dataset,
+                    'seed': seed
+                },
                 responseType: 'arraybuffer'
             }
-        ).then((response) => {
-            const file = new Blob([response.data], {type:'image/jpeg'})
+        ).
+        then((response) => {
+            console.log(response)
+            const file = new Blob([response.data], {type: response['headers']['content-type']})
             setImages([{
                 'path': URL.createObjectURL(file),
                 'epoch': epoch,
@@ -54,7 +56,6 @@ const ModelDemo = ({ info, backendURL }) => {
                     'Access-Control-Allow-Origin': '*'
                 }
             ).then((response) => {
-                console.log(response)
                 setDatasets(response.data)
                 setIsDatasetReady(true)
             }).catch((error) => {
@@ -76,9 +77,7 @@ const ModelDemo = ({ info, backendURL }) => {
                 {
                     'params': {
                         'dataset': dataset
-                    }
-                },
-                {
+                    },
                     responseType: 'json'
                 }
             )
@@ -88,9 +87,7 @@ const ModelDemo = ({ info, backendURL }) => {
                 {
                     'params': {
                         'dataset': dataset
-                    }
-                },
-                {
+                    },
                     responseType: 'json'
                 }
             )
