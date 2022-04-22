@@ -6,6 +6,7 @@ import PersonalSiteArticle from './Articles/PersonalSiteArticle';
 import ActganArticle from './Articles/ActganArticle';
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { actganBackendURL } from './ApiClient'
+import MissingPage from './MissingPage';
 
 const routes = [
   { path: '/', name: 'Home',
@@ -19,7 +20,10 @@ const routes = [
   { path: '/articles/personal-site', name: 'Personal Site',
     component:
       <PersonalSiteArticle
-        info={PersonalSiteInfo}/>}
+        info={PersonalSiteInfo}/>},
+  { path: '*', name: 'Not Found',
+    component:
+      <MissingPage />}
 ]
 
 const ContentRoutes = () => {
