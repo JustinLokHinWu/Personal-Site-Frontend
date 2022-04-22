@@ -9,11 +9,13 @@ const Socials = () => {
                 icon={GithubFilled}
                 text={''}
                 link={'https://github.com/JustinLokHinWu'}
+                size='large'
             />
             <IconButton
                 icon={LinkedinFilled}
                 text={''}
-                link={''}
+                link={'https://www.linkedin.com/in/justin-wu-7a197a172/'}
+                size='large'
             />
             <IconButton
                 icon={MailFilled}
@@ -22,6 +24,7 @@ const Socials = () => {
                 onClick={() => {
                     navigator.clipboard.writeText('JustinLHWu@gmail.com')
                 }}
+                size='large'
             />
         </div>
     )

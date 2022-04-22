@@ -5,6 +5,7 @@ import 'antd/dist/antd.css';
 import HeaderMenu from './components/HeaderMenu';
 import ContentRoutes from './components/ContentRoutes';
 import Socials from './components/Socials'
+import PageFooter from './components/PageFooter';
 
 const { Content, Footer } = Layout;
 
@@ -24,7 +25,7 @@ function App() {
             <ContentRoutes />
           </Col>
           </Content>
-        <Footer style={{ textAlign: 'center' }}>&#xA9; 2022 Justin Wu</Footer>
+        <Footer style={{ textAlign: 'center', backgroundColor: 'white' }}><PageFooter /></Footer>
       </Layout>
     </BrowserRouter>
   );
