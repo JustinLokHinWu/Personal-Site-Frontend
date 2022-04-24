@@ -1,10 +1,10 @@
 import React from 'react'
 import { List } from 'antd'
 
-const ExperienceListItem = ({ key, title, description, content, image, image_alt }) => {
+const ExperienceListItem = ({ itemKey, title, description, content, image, image_alt }) => {
     return (
         <List.Item
-            key={key}
+            key={itemKey}
             extra={
                 <img
                     src={image}
