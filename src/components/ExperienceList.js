@@ -3,6 +3,7 @@ import { List } from 'antd'
 import ExperienceListItem from './ExperienceListItem'
 import image_uoft from '../assets/images/uoft.png'
 import image_caseware from '../assets/images/caseware.png'
+import ExpandableText from './ExpandableText'
 
 const ExperienceList = () => {
     const entries = [
@@ -10,7 +11,7 @@ const ExperienceList = () => {
             key: 'uoftbachelor',
             title: 'University of Toronto St. George',
             description: 'September 2016 - June 2021',
-            content: 'Honours Bachelor of Science with High Distinction. Computer Science Specialist with a focus in artificial intelligence',
+            content: 'Honours Bachelor of Science with High Distinction. Computer Science Specialist with a focus in artificial intelligence. CGPA: 3.66',
             image: image_uoft,
             image_alt: 'uoft'
         },
@@ -18,7 +19,7 @@ const ExperienceList = () => {
             key: 'caseware',
             title: 'CaseWare International',
             description: 'May 2019 - August 2020',
-            content: 'Backends, frontends, machine learning pipelines',
+            content: 'At CaseWare, I worked on a variety of projects. I modernized a legacy IIS C++ server, overhauling the logging system to minimize bottlenecking during high-throughput, multithreaded tasks, collaborating with security experts to fix potential exploits, and introducing new standards for testing. I also researched, designed, and implemented a data processing pipeline for machine learning in Python. This pipeline ensures all user data used for machine learning is properly sanitized of personally identifiable information up to a high standard of k-anonymity. Lastly, I helped develop an Angular frontend that graphs financial data from a microservice.',
             image: image_caseware,
             image_alt: 'caseware'
         }
@@ -34,7 +35,7 @@ const ExperienceList = () => {
                     key={entry.key}
                     title={entry.title}
                     description={entry.description}
-                    content={entry.content}
+                    content={<ExpandableText content={entry.content} maxChars={300} />}
                     image={entry.image}
                     image_alt={entry.image_alt}
                 />
