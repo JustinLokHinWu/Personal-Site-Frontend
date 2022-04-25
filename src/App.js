@@ -1,4 +1,4 @@
-import './App.css';
+import './App.less';
 import { BrowserRouter } from 'react-router-dom'
 import { Affix, Layout, Col } from 'antd'
 import 'antd/dist/antd.css';
