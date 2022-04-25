@@ -18,7 +18,7 @@ const Biography = () => {
             />
             <Title level={2}>Hi, I'm Justin</Title>
             <Paragraph style={{'textAlign': 'justify'}}>
-                Computer science graduate at the University of Toronto St. George. Passionate in machine learning, 
+                I am a computer science graduate from the University of Toronto St. George. I am passionate in machine learning and web architecture. 
             </Paragraph>
         </Space>
     )
