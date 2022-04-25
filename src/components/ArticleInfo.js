@@ -7,7 +7,7 @@ export const ActganInfo = {
     key: "actgan",
     title: "ACTGAN",
     description: "Multiclass-conditioned novel image generation",
-    content: "ACTGAN belongs to a class of machine learning models called GANs (generative adversarial networks) that learn to generate completely novel data (i.e. images) that resemble the training data. ACTGAN is a multiclass-conditioned GAN, meaning it can generate completely different classes (ex. images of dogs, cats, etc.) depending on a class input. It extends on AC-GAN (Auxillary Classifier Generative Adversarial Network), using a transformer-based architecture for the \"discriminator\" network. ACTGAN was designed and implemented with a partner as a final project for a machine learning course. ",
+    content: "ACTGAN is a machine learning model that learns to generates completely novel images of a variety of classes, given a user-given class input.",
     page_path: "/demos/actgan",
     links: [
         {'text': 'Demo', 'link': '/demos/actgan', 'icon': CodeOutlined, 'isArticleLink': true, 'isInternalLink': true},
@@ -21,8 +21,8 @@ export const ActganInfo = {
 export const PersonalSiteInfo = {
     key: "personalsite",
     title: "Personal Site",
-    description: "React frontend interfacing with a microservice backend, hosted on AWS",
-    content: "This site consists of a React frontend communicating with microservices deployed behind a Kong API gateway. All microservices are dockerized and deployed on AWS.",
+    description: "React frontend interfacing with AWS backend",
+    content: "This personal website consists of a React frontend, using Ant Design for UI components and Axios for making requests to backend APIs. The backend is hosted on AWS, using API Gateway and Lambda to serve REST APIs.",
     links: [
         {'text': "Read More", 'link': '/articles/personal-site', 'icon': ReadOutlined, 'isArticleLink': true, 'isInternalLink': true},
         {'text': 'Source Code', 'link': 'https://github.com/JustinLokHinWu/personal-site-frontend', 'icon': GithubFilled, 'isInternalLink': false}

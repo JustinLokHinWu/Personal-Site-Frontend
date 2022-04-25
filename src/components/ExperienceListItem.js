@@ -1,10 +1,11 @@
 import React from 'react'
-import { List } from 'antd'
+import { EnvironmentOutlined, CalendarOutlined } from '@ant-design/icons';
+import { List, Space } from 'antd'
 
-const ExperienceListItem = ({ key, title, description, content, image, image_alt }) => {
+const ExperienceListItem = ({ itemKey, title, description, location, content, image, image_alt }) => {
     return (
         <List.Item
-            key={key}
+            key={itemKey}
             extra={
                 <img
                     src={image}
@@ -15,7 +16,12 @@ const ExperienceListItem = ({ key, title, description, content, image, image_alt
         >
             <List.Item.Meta
                 title={title}
-                description={description}
+                description={
+                    <Space direction='vertical'>
+                        <div><CalendarOutlined /> {description}</div>
+                        <div><EnvironmentOutlined /> {location}</div>
+                    </Space>
+                }
             />
             {content}
         </List.Item>

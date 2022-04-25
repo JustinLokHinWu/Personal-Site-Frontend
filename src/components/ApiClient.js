@@ -1,3 +1,3 @@
 import React from 'react'
 
-export const backendURL = process.env.BACKEND_URL ? process.env.BACKEND_URL : 'localhost:1231'
+export const actganBackendURL = process.env.ACTGAN_BACKEND_URL ? process.env.ACTGAN_BACKEND_URL : 'https://fhba9r3dp8.execute-api.us-east-2.amazonaws.com/Prod'

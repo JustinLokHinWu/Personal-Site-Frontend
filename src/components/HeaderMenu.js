@@ -19,6 +19,11 @@ const HeaderMenu = () => {
             text: 'Experience',
             key: 'experience',
             to: '/#experience'
+        },
+        {
+            text: 'Contacts',
+            key: 'contacts',
+            to: '#contacts'
         }
     ]
 
@@ -30,7 +35,6 @@ const HeaderMenu = () => {
             <Menu.Item
                 key='home'>
                 <Link
-                    // scroll={(el) => el.scrollIntoView({ behavior: 'smooth' })}
                     smooth
                     to='/#'><HomeOutlined /></Link>
             </Menu.Item>
@@ -39,7 +43,6 @@ const HeaderMenu = () => {
                     <Menu.Item
                         key={entry.key}>
                         <Link
-                            // scroll={(el) => el.scrollIntoView({ behavior: 'smooth' })}
                             smooth
                             to={entry.to}>{entry.text}</Link>
                     </Menu.Item>

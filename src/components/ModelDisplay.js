@@ -22,7 +22,7 @@ const ModelDisplay = ({images}) => {
                         }
                     >
                         <Image
-                        width='96px'
+                        width='32px'
                         src={item.path} />
                     </Popover>
                 </List.Item>

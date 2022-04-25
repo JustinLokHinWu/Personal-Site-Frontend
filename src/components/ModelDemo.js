@@ -15,23 +15,25 @@ const ModelDemo = ({ info, backendURL }) => {
     const [isDatasetReady, setIsDatasetReady] = useState(false)
     const [isRequesting, setIsRequesting] = useState(false)
     const [fetchingDatasetLists, setFetchingDatasetLists] = useState(false)
-    const [fetchingClassAndEpochs, setfetchingClassAndEpochs] = useState(false)
+    const [fetchingClassAndEpochs, setFetchingClassAndEpochs] = useState(false)
 
     const fetchImage = async (dataset, epoch, class_id, seed) => {
         setIsRequesting(true)
-        axios.post(
+        axios.get(
             `${backendURL}/generate`,
             {
-                'class_id': class_id,
-                'epoch': epoch,
-                'dataset': dataset,
-                ...(seed !== null && { 'seed': seed })
-            },
-            {
+                'params': {
+                    'class_id': class_id,
+                    'epoch': epoch,
+                    'dataset': dataset,
+                    'seed': seed
+                },
                 responseType: 'arraybuffer'
             }
-        ).then((response) => {
-            const file = new Blob([response.data], {type:'image/jpeg'})
+        ).
+        then((response) => {
+            console.log(response)
+            const file = new Blob([response.data], {type: response['headers']['content-type']})
             setImages([{
                 'path': URL.createObjectURL(file),
                 'epoch': epoch,
@@ -54,18 +56,18 @@ const ModelDemo = ({ info, backendURL }) => {
                     'Access-Control-Allow-Origin': '*'
                 }
             ).then((response) => {
-                console.log(response)
                 setDatasets(response.data)
                 setIsDatasetReady(true)
             }).catch((error) => {
                 console.log(error)
                 message.error('Failed to get datasets')
+            }).finally(() => {
+                setFetchingDatasetLists(false)
             })
         }
         setIsDatasetReady(false)
         setFetchingDatasetLists(true)
         fetchDatasets()
-        setFetchingDatasetLists(false)
 
     }, [backendURL])
 
@@ -76,9 +78,7 @@ const ModelDemo = ({ info, backendURL }) => {
                 {
                     'params': {
                         'dataset': dataset
-                    }
-                },
-                {
+                    },
                     responseType: 'json'
                 }
             )
@@ -88,9 +88,7 @@ const ModelDemo = ({ info, backendURL }) => {
                 {
                     'params': {
                         'dataset': dataset
-                    }
-                },
-                {
+                    },
                     responseType: 'json'
                 }
             )
@@ -101,13 +99,14 @@ const ModelDemo = ({ info, backendURL }) => {
                     setIsDatasetReady(true)
                 })).catch(errors => {
                     console.log(errors)
+                }).finally(() => {
+                    setFetchingClassAndEpochs(false)
                 })
         }
 
         if (selectedDataset) {
-            setfetchingClassAndEpochs(true)
+            setFetchingClassAndEpochs(true)
             fetchEpochsAndClasses(selectedDataset)
-            setfetchingClassAndEpochs(false)
         }
     }, [backendURL, selectedDataset, datasets.length])
 
