@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, Tooltip } from 'antd'
-import 'antd/dist/antd.css';
 
 const IconButton = ({ icon, text, link, tooltip, onClick, isInternalLink, size }) => {
     return (

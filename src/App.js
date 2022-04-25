@@ -1,7 +1,6 @@
 import './App.less';
 import { BrowserRouter } from 'react-router-dom'
 import { Affix, Layout, Col } from 'antd'
-import 'antd/dist/antd.css';
 import HeaderMenu from './components/HeaderMenu';
 import ContentRoutes from './components/ContentRoutes';
 import Socials from './components/Socials'

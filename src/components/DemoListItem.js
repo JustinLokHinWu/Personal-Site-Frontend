@@ -1,5 +1,4 @@
 import { List } from 'antd'
-import 'antd/dist/antd.css';
 import { useNavigate } from 'react-router-dom';
 
 import IconButton from './IconButton';
