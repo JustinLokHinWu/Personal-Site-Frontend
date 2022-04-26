@@ -17,14 +17,13 @@ function App() {
             <HeaderMenu />
           </Affix>
           <Col
-            className="site-layout-background"
             xs={24} sm={24} md={20} lg={18} xl={16}
             style={{ padding: '30px 5%', minHeight: 380, margin: 'auto'}}
           >
             <ContentRoutes />
           </Col>
           </Content>
-        <Footer style={{ textAlign: 'center', backgroundColor: 'white' }}><PageFooter /></Footer>
+        <Footer className='dark-theme' style={{ textAlign: 'center' }}><PageFooter /></Footer>
       </Layout>
     </BrowserRouter>
   );

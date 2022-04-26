@@ -29,7 +29,7 @@ const HeaderMenu = () => {
 
     return (
         <Menu
-            theme='light'
+            theme='dark'
             mode='horizontal'
         >
             <Menu.Item
