@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Tooltip } from 'antd'
 
-const IconButton = ({ icon, text, link, tooltip, onClick, isInternalLink, size }) => {
+const IconButton = ({ icon, text, link, tooltip, onClick, size }) => {
     return (
         <Tooltip title={tooltip} trigger={ tooltip ? 'click' : 'hover' } >
             <Button

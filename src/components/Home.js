@@ -8,7 +8,6 @@ const { Title } = Typography
 const Home = () => {
     return (
         <div>
-
             <PageSection id='biography'>
                 <Biography />
                 </PageSection>

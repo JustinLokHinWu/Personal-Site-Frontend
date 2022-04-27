@@ -14,7 +14,7 @@ const DemoListItem = ({ itemKey, title, description, content, links, image, imag
                         icon={entry.icon}
                         text={entry.text}
                         onClick={() => entry.isInternalLink ? navigate(entry.link) : null}
-                        link={entry.link}
+                        link={entry.isInternalLink ? null : entry.link}
                     />
                 )
             }

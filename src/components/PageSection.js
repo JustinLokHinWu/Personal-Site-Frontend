@@ -25,7 +25,7 @@ const PageSection = ({children, id}) => {
         } else{
             animation.start('hidden')
         }
-    }, [inView])
+    }, [inView, animation])
     
 
     return (
