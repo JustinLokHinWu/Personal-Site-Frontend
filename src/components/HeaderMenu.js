@@ -43,8 +43,16 @@ const HeaderMenu = () => {
                     <Menu.Item
                         key={entry.key}>
                         <Link
-                            smooth
-                            to={entry.to}>{entry.text}</Link>
+                            scroll={(el) => {
+                                window.scroll({
+                                    top: el.offsetTop,
+                                    left: 0,
+                                    behavior: 'smooth'
+                                })
+                            }}
+                            to={entry.to}>
+                            {entry.text}
+                        </Link>
                     </Menu.Item>
                 )
             }
