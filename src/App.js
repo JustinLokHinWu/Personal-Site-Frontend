@@ -6,7 +6,7 @@ import ContentRoutes from './components/ContentRoutes';
 import Socials from './components/Socials'
 import PageFooter from './components/PageFooter';
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
             <ContentRoutes />
           </Col>
           </Content>
-        <Footer className='dark-theme' style={{ textAlign: 'center' }}><PageFooter /></Footer>
+        <PageFooter />
       </Layout>
     </BrowserRouter>
   );
