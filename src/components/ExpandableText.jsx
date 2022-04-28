@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { React, useState } from 'react';
 import { Typography, Button } from 'antd';
 
@@ -10,24 +11,35 @@ function ExpandableText({ content, maxChars }) {
   return (
     <Paragraph>
       {
-                `${canExpand && !expanded
-                  ? `${content.substring(0, content.substring(0, maxChars).lastIndexOf(' '))}...`
-                  : content} `
-            }
+        `${canExpand && !expanded
+          ? `${content.substring(0, content.substring(0, maxChars).lastIndexOf(' '))}...`
+          : content} `
+      }
       {
-                canExpand
-                && (
-                <a onClick={() => {
-                  setExpanded(!expanded);
-                }}
-                >
-                  { expanded ? 'Show less' : 'Show more' }
-                </a>
-                )
-            }
-
+        canExpand
+          && (
+            <Button
+              type="link"
+              className="inline-button"
+              onClick={() => {
+                setExpanded(!expanded);
+              }}
+            >
+              { expanded ? 'Show less' : 'Show more' }
+            </Button>
+          )
+      }
     </Paragraph>
   );
 }
+
+ExpandableText.defaultProps = {
+  maxChars: 200,
+};
+
+ExpandableText.propTypes = {
+  content: PropTypes.string.isRequired,
+  maxChars: PropTypes.number,
+};
 
 export default ExpandableText;

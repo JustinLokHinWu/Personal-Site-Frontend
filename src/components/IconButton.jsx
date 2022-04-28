@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Button, Tooltip } from 'antd';
 
@@ -10,13 +11,30 @@ function IconButton({
         type="link"
         onClick={onClick}
         href={link}
-        size={size || 'middle'}
+        size={size}
       >
         {React.createElement(icon)}
-        {text || null}
+        {text}
       </Button>
     </Tooltip>
   );
 }
+
+IconButton.defaultProps = {
+  link: null,
+  onClick: () => {},
+  size: 'middle',
+  text: null,
+  tooltip: null,
+};
+
+IconButton.propTypes = {
+  icon: PropTypes.elementType.isRequired,
+  link: PropTypes.string,
+  onClick: PropTypes.func,
+  size: PropTypes.oneOf(['small', 'middle', 'large']),
+  text: PropTypes.string,
+  tooltip: PropTypes.string,
+};
 
 export default IconButton;

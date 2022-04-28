@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Image, List, Popover } from 'antd';
 
@@ -39,5 +40,14 @@ function ModelDisplay({ images }) {
     />
   );
 }
+
+ModelDisplay.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.shape({
+    path: PropTypes.string.isRequired,
+    epoch: PropTypes.number.isRequired,
+    class: PropTypes.string.isRequired,
+    seed: PropTypes.number.isRequired,
+  })).isRequired,
+};
 
 export default ModelDisplay;

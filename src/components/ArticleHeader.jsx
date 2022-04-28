@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import DescriptionsItem from 'antd/lib/descriptions/Item';
 import { useNavigate } from 'react-router-dom';
 import { PageHeader, Descriptions, Button } from 'antd';
@@ -34,5 +35,19 @@ function ArticleHeader({ info }) {
     </PageHeader>
   );
 }
+
+ArticleHeader.propTypes = {
+  info: PropTypes.shape({
+    description: PropTypes.string.isRequired,
+    links: PropTypes.arrayOf(PropTypes.shape({
+      key: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+      link: PropTypes.string.isRequired,
+      icon: PropTypes.elementType.isRequired,
+      isArticleLink: PropTypes.bool,
+    })).isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default ArticleHeader;

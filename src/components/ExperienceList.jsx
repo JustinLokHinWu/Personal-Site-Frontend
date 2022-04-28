@@ -1,8 +1,8 @@
 import React from 'react';
 import { List } from 'antd';
 import ExperienceListItem from './ExperienceListItem';
-import image_uoft from '../assets/images/uoft.png';
-import image_caseware from '../assets/images/caseware.png';
+import imageUoft from '../assets/images/uoft.png';
+import imageCaseware from '../assets/images/caseware.png';
 import ExpandableText from './ExpandableText';
 
 function ExperienceList() {
@@ -13,8 +13,8 @@ function ExperienceList() {
       description: 'September 2016 - June 2021',
       location: 'Toronto, ON',
       content: 'Honours Bachelor of Science with High Distinction. Computer Science Specialist with a focus in artificial intelligence. CGPA: 3.66',
-      image: image_uoft,
-      image_alt: 'uoft',
+      image: imageUoft,
+      imageAlt: 'uoft',
     },
     {
       key: 'caseware',
@@ -22,8 +22,8 @@ function ExperienceList() {
       description: 'May 2019 - August 2020',
       location: 'Toronto, ON',
       content: 'At CaseWare, I worked on a variety of projects. I modernized a legacy IIS C++ server, overhauling the logging system to minimize bottlenecking during high-throughput, multithreaded tasks, collaborating with security experts to fix potential exploits, and introducing new standards for testing. I also researched, designed, and implemented a data processing pipeline for machine learning in Python. This pipeline ensures all user data used for machine learning is properly sanitized of personally identifiable information up to a high standard of k-anonymity. Lastly, I helped develop an Angular frontend that graphs financial data from a microservice.',
-      image: image_caseware,
-      image_alt: 'caseware',
+      image: imageCaseware,
+      imageAlt: 'caseware',
     },
   ];
 
@@ -34,13 +34,13 @@ function ExperienceList() {
       dataSource={entries}
       renderItem={(entry) => (
         <ExperienceListItem
-          key={entry.key}
+          itemKey={entry.key}
           title={entry.title}
           description={entry.description}
           location={entry.location}
           content={<ExpandableText content={entry.content} maxChars={300} />}
           image={entry.image}
-          image_alt={entry.image_alt}
+          imageAlt={entry.imageAlt}
         />
       )}
     />

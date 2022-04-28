@@ -12,7 +12,7 @@ function DemoList() {
       dataSource={demos}
       renderItem={(item) => (
         <DemoListItem
-          key={item.key}
+          itemKey={item.key}
           title={item.title}
           description={item.description}
           content={item.content}

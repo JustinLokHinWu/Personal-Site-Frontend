@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "4.0.0",
     "@craco/craco": "^6.4.3",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -17,6 +18,7 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
     "framer-motion": "^6.3.2",
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-intersection-observer": "^9.1.0",
@@ -32,8 +34,8 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
-    "lint": "eslint src/*/**.jsx",
-    "lint-fix": "eslint src/*/**.jsx --fix"
+    "lint": "eslint -c .eslintrc.json src/*/**.jsx",
+    "lint-fix": "eslint -c .eslintrc.json src/*/**.jsx --fix"
   },
   "eslintConfig": {
     "extends": [

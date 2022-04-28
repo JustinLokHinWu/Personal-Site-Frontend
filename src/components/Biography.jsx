@@ -1,8 +1,7 @@
 import React from 'react';
 import {
-  Avatar, Divider, Space, Typography,
+  Avatar, Space, Typography,
 } from 'antd';
-import Socials from './Socials';
 import ProfilePicture from '../assets/images/profile.jpeg';
 
 const { Title, Paragraph } = Typography;
@@ -24,9 +23,10 @@ function Biography() {
           display: 'block', marginLeft: 'auto', marginRight: 'auto', marginTop: '25px', marginBottom: '10px',
         }}
       />
-      <Title level={2}>Hi, I'm Justin</Title>
+      <Title level={2}>Hi, I&apos;m Justin</Title>
       <Paragraph style={{ textAlign: 'justify' }}>
-        I am a computer science graduate from the University of Toronto St. George. I am passionate in machine learning and web architecture.
+        I am a computer science graduate from the University of Toronto St. George. I am passionate
+        in machine learning and web architecture.
       </Paragraph>
     </Space>
   );

@@ -62,25 +62,25 @@ function HeaderMenu() {
           </Link>
         </Menu.Item>
         {
-                    entries.map((entry) => (
-                      <Menu.Item
-                        key={entry.key}
-                      >
-                        <Link
-                          scroll={(el) => {
-                            window.scroll({
-                              top: el.offsetTop,
-                              left: 0,
-                              behavior: 'smooth',
-                            });
-                          }}
-                          to={entry.to}
-                        >
-                          {entry.text}
-                        </Link>
-                      </Menu.Item>
-                    ))
-                }
+          entries.map((entry) => (
+            <Menu.Item
+              key={entry.key}
+            >
+              <Link
+                scroll={(el) => {
+                  window.scroll({
+                    top: el.offsetTop,
+                    left: 0,
+                    behavior: 'smooth',
+                  });
+                }}
+                to={entry.to}
+              >
+                {entry.text}
+              </Link>
+            </Menu.Item>
+          ))
+      }
       </Menu>
     </motion.div>
   );

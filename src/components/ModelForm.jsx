@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { Select, Button, Form } from 'antd';
 import SeedInput from './SeedInput';
@@ -26,9 +27,9 @@ function ModelForm({
     // If the seed is not set, generate a random one. The backend can
     // handle a missing seed, but doing it this way means we can have the
     // seed in the frontend without fetching it from the server
-    const image_seed = (seed == null) ? generateRandomSeed() : seed;
+    const imageSeed = (seed == null) ? generateRandomSeed() : seed;
 
-    fetchImage(selectedDataset, selectedEpoch, selectedClass, image_seed);
+    fetchImage(selectedDataset, selectedEpoch, selectedClass, imageSeed);
   };
 
   useEffect(() => {
@@ -36,7 +37,7 @@ function ModelForm({
   }, [epochs]);
 
   useEffect(() => {
-    setSelectedClass(0);
+    setSelectedClass(classes[0]);
   }, [classes]);
 
   return (
@@ -117,5 +118,22 @@ function ModelForm({
     </Form>
   );
 }
+
+ModelForm.defaultProps = {
+  selectedDataset: null,
+};
+
+ModelForm.propTypes = {
+  classes: PropTypes.arrayOf(PropTypes.string).isRequired,
+  datasets: PropTypes.arrayOf(PropTypes.string).isRequired,
+  epochs: PropTypes.arrayOf(PropTypes.number).isRequired,
+  fetchImage: PropTypes.func.isRequired,
+  fetchingClassAndEpochs: PropTypes.bool.isRequired,
+  fetchingDatasetLists: PropTypes.bool.isRequired,
+  isDatasetReady: PropTypes.bool.isRequired,
+  isRequesting: PropTypes.bool.isRequired,
+  selectedDataset: PropTypes.string,
+  setSelectedDataset: PropTypes.func.isRequired,
+};
 
 export default ModelForm;

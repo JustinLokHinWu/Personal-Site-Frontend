@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Divider, Typography } from 'antd';
 import ArticleHeader from '../ArticleHeader';
 import { ActganInfo } from '../ArticleInfo';
@@ -20,5 +21,9 @@ function ActganArticle({ backendURL }) {
     </div>
   );
 }
+
+ActganArticle.propTypes = {
+  backendURL: PropTypes.string.isRequired,
+};
 
 export default ActganArticle;

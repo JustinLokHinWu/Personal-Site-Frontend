@@ -1,12 +1,13 @@
+import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
-  Divider, Row, Col, message,
+  Row, Col, message,
 } from 'antd';
 import ModelForm from './ModelForm';
 import ModelDisplay from './ModelDisplay';
 
-function ModelDemo({ info, backendURL }) {
+function ModelDemo({ backendURL }) {
   const [datasets, setDatasets] = useState([]);
   const [images, setImages] = useState([]);
   const [epochs, setEpochs] = useState([]);
@@ -19,13 +20,13 @@ function ModelDemo({ info, backendURL }) {
   const [fetchingDatasetLists, setFetchingDatasetLists] = useState(false);
   const [fetchingClassAndEpochs, setFetchingClassAndEpochs] = useState(false);
 
-  const fetchImage = async (dataset, epoch, class_id, seed) => {
+  const fetchImage = async (dataset, epoch, classId, seed) => {
     setIsRequesting(true);
     axios.get(
       `${backendURL}/generate`,
       {
         params: {
-          class_id,
+          class_id: classId,
           epoch,
           dataset,
           seed,
@@ -38,7 +39,7 @@ function ModelDemo({ info, backendURL }) {
         setImages([{
           path: URL.createObjectURL(file),
           epoch,
-          class: classes[class_id],
+          class: classes[classId],
           seed,
         }, ...images]);
       }).catch(() => {
@@ -133,5 +134,9 @@ function ModelDemo({ info, backendURL }) {
     </div>
   );
 }
+
+ModelDemo.propTypes = {
+  backendURL: PropTypes.string.isRequired,
+};
 
 export default ModelDemo;

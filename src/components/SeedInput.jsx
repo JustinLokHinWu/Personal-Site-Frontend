@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Input } from 'antd';
 
@@ -21,5 +22,14 @@ function SeedInput({ seed, setSeed }) {
     />
   );
 }
+
+SeedInput.defaultProps = {
+  seed: null,
+};
+
+SeedInput.propTypes = {
+  seed: PropTypes.number,
+  setSeed: PropTypes.func.isRequired,
+};
 
 export default SeedInput;

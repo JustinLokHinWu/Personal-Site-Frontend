@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { React, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -43,5 +44,13 @@ function PageSection({ children, id }) {
     </section>
   );
 }
+PageSection.defaultProps = {
+  children: null,
+};
+
+PageSection.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]),
+  id: PropTypes.string.isRequired,
+};
 
 export default PageSection;

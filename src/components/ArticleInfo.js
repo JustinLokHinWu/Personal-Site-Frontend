@@ -1,7 +1,6 @@
-import React from 'react';
 import { GithubFilled, CodeOutlined, ReadOutlined } from '@ant-design/icons';
-import actgan_image from '../assets/images/ACTGAN.png';
-import site_image from '../assets/images/site.jpeg';
+import actganImage from '../assets/images/ACTGAN.png';
+import siteImage from '../assets/images/site.jpeg';
 
 export const ActganInfo = {
   key: 'actgan',
@@ -20,7 +19,7 @@ export const ActganInfo = {
       key: 'actgan-button-service-link', text: 'Service', link: 'https://github.com/JustinLokHinWu/ACTGAN-Service', icon: GithubFilled, isInternalLink: false,
     },
   ],
-  image: actgan_image,
+  image: actganImage,
   image_alt: 'ACTGAN',
 };
 
@@ -37,7 +36,7 @@ export const PersonalSiteInfo = {
       key: 'personal-button-source', text: 'Source Code', link: 'https://github.com/JustinLokHinWu/personal-site-frontend', icon: GithubFilled, isInternalLink: false,
     },
   ],
-  image: site_image,
+  image: siteImage,
   image_alt: 'Personal website',
 };
 

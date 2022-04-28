@@ -7,7 +7,7 @@ import { useInView } from 'react-intersection-observer';
 
 import Socials from './Socials';
 
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 const { Footer } = Layout;
 
 function PageFooter() {

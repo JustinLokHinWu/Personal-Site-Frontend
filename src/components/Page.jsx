@@ -1,4 +1,5 @@
 import { React, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
 const pageVariant = {
@@ -29,7 +30,7 @@ const pageVariant = {
 };
 
 function Page({
-  children, initial = 'out', animate = 'in', exit = 'out',
+  children, initial, animate, exit,
 }) {
   // React Router v6 doesn't automatically scroll to top on route change
   useEffect(() => {
@@ -50,16 +51,19 @@ function Page({
     </motion.div>
   );
 }
-const isValidAnimation = (props, propName) => {
-  if (props[propName] && !(props[propName] in pageVariant)) {
-    return new Error(`Prop '${propName}' has invalid value '${props[propName]}'`);
-  }
+
+Page.defaultProps = {
+  children: null,
+  initial: 'out',
+  animate: 'in',
+  exit: 'out',
 };
 
 Page.propTypes = {
-  initial: isValidAnimation,
-  animate: isValidAnimation,
-  exit: isValidAnimation,
+  children: PropTypes.element,
+  initial: PropTypes.oneOf(Object.keys(pageVariant)),
+  animate: PropTypes.oneOf(Object.keys(pageVariant)),
+  exit: PropTypes.oneOf(Object.keys(pageVariant)),
 };
 
 export default Page;

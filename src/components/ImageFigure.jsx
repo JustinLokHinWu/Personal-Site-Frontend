@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Image, Typography } from 'antd';
 
@@ -14,5 +15,14 @@ function ImageFigure({ image, caption }) {
     </div>
   );
 }
+
+ImageFigure.defaultProps = {
+  caption: null,
+};
+
+ImageFigure.propTypes = {
+  caption: PropTypes.string,
+  image: PropTypes.elementType.isRequired,
+};
 
 export default ImageFigure;

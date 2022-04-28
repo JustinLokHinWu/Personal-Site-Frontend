@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Select } from 'antd';
 
@@ -17,5 +18,18 @@ function SelectEpoch({
     />
   );
 }
+
+SelectEpoch.defaultProps = {
+  selectedEpoch: null,
+};
+
+SelectEpoch.propTypes = {
+  datasetSelected: PropTypes.bool.isRequired,
+  epochs: PropTypes.arrayOf(PropTypes.number).isRequired,
+  fetchingClassAndEpochs: PropTypes.bool.isRequired,
+  isDatasetReady: PropTypes.bool.isRequired,
+  selectedEpoch: PropTypes.number,
+  setSelectedEpoch: PropTypes.func.isRequired,
+};
 
 export default SelectEpoch;
