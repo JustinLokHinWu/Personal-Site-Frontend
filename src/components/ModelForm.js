@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Select, Button, Form } from 'antd'
-import "antd/dist/antd.css";
 import SeedInput from './SeedInput';
 import SelectEpoch from './SelectEpoch';
 import SelectClass from './SelectClass';

@@ -1,4 +1,3 @@
-import 'antd/dist/antd.css';
 import { List } from 'antd'
 import DemoListItem from './DemoListItem';
 import { ArticleInfo } from './ArticleInfo'

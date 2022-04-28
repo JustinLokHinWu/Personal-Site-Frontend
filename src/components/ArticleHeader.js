@@ -10,7 +10,7 @@ const ArticleHeader = ({ info }) => {
     <PageHeader
       className='site-page-header'
       title={info.title}
-      onBack={() => navigate(-1)}
+      onBack={() => navigate('/')}
     >
       <Descriptions column={1} size='small'>
         <DescriptionsItem>
@@ -21,6 +21,7 @@ const ArticleHeader = ({ info }) => {
           info.links.filter(entry => !('isArticleLink' in entry)).map(entry => 
             <Button
               type='link'
+              key={entry.key}
               href={entry.link}>
                 <entry.icon />{entry.text}
             </Button>

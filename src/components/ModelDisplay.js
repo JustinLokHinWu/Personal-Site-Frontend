@@ -1,5 +1,4 @@
 import { Image, List, Popover } from 'antd'
-import "antd/dist/antd.css";
 
 const ModelDisplay = ({images}) => {
     return (

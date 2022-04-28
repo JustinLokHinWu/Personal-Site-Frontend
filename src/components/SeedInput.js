@@ -1,6 +1,5 @@
 import React from 'react'
 import { Input } from 'antd'
-import "antd/dist/antd.css"
 
 const SeedInput = ({seed, setSeed}) => {
     const onChange = (e) => {

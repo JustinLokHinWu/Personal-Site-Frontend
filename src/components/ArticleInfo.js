@@ -1,6 +1,6 @@
 import { GithubFilled, CodeOutlined, ReadOutlined } from '@ant-design/icons';
 import actgan_image from "../assets/images/ACTGAN.png"
-import site_image from "../assets/images/site.png"
+import site_image from "../assets/images/site.jpeg"
 import PersonalSiteArticle from './Articles/PersonalSiteArticle';
 
 export const ActganInfo = {
@@ -10,9 +10,9 @@ export const ActganInfo = {
     content: "ACTGAN is a machine learning model that learns to generates completely novel images of a variety of classes, given a user-given class input.",
     page_path: "/demos/actgan",
     links: [
-        {'text': 'Demo', 'link': '/demos/actgan', 'icon': CodeOutlined, 'isArticleLink': true, 'isInternalLink': true},
-        {'text': 'Model', 'link': 'https://github.com/JustinLokHinWu/ACTGAN', 'icon': GithubFilled, 'isInternalLink': false},
-        {'text': 'Service', 'link': 'https://github.com/JustinLokHinWu/ACTGAN-Service', 'icon': GithubFilled,  'isInternalLink': false},
+        {'key': 'actgan-button-demo', 'text': 'Demo', 'link': '/demos/actgan', 'icon': CodeOutlined, 'isArticleLink': true, 'isInternalLink': true},
+        {'key': 'actgan-button-model-link', 'text': 'Model', 'link': 'https://github.com/JustinLokHinWu/ACTGAN', 'icon': GithubFilled, 'isInternalLink': false},
+        {'key': 'actgan-button-service-link', 'text': 'Service', 'link': 'https://github.com/JustinLokHinWu/ACTGAN-Service', 'icon': GithubFilled,  'isInternalLink': false},
     ],
     image: actgan_image,
     image_alt: "ACTGAN",
@@ -24,8 +24,8 @@ export const PersonalSiteInfo = {
     description: "React frontend interfacing with AWS backend",
     content: "This personal website consists of a React frontend, using Ant Design for UI components and Axios for making requests to backend APIs. The backend is hosted on AWS, using API Gateway and Lambda to serve REST APIs.",
     links: [
-        {'text': "Read More", 'link': '/articles/personal-site', 'icon': ReadOutlined, 'isArticleLink': true, 'isInternalLink': true},
-        {'text': 'Source Code', 'link': 'https://github.com/JustinLokHinWu/personal-site-frontend', 'icon': GithubFilled, 'isInternalLink': false}
+        {'key': 'personal-button-more', 'text': "Read More", 'link': '/articles/personal-site', 'icon': ReadOutlined, 'isArticleLink': true, 'isInternalLink': true},
+        {'key': 'personal-button-source', 'text': 'Source Code', 'link': 'https://github.com/JustinLokHinWu/personal-site-frontend', 'icon': GithubFilled, 'isInternalLink': false}
     ],
     image: site_image,
     image_alt: "Personal website",
