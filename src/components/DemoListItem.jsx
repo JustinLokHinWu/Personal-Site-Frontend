@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import IconButton from './IconButton';
 
 function DemoListItem({
-  itemKey, title, description, content, links, image, image_alt,
+  itemKey, title, description, content, links, image, imageAlt,
 }) {
   const navigate = useNavigate();
   return (
@@ -24,7 +24,7 @@ function DemoListItem({
       extra={(
         <img
           src={image}
-          alt={image_alt}
+          alt={imageAlt}
           width={100}
         />
               )}

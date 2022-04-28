@@ -2,7 +2,6 @@ import React from 'react';
 import { GithubFilled, CodeOutlined, ReadOutlined } from '@ant-design/icons';
 import actgan_image from '../assets/images/ACTGAN.png';
 import site_image from '../assets/images/site.jpeg';
-import PersonalSiteArticle from './Articles/PersonalSiteArticle';
 
 export const ActganInfo = {
   key: 'actgan',

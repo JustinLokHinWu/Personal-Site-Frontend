@@ -40,7 +40,7 @@ function PageFooter() {
     <div
       ref={ref}
       id="contacts"
-      style={{ 'overflow-y': 'hidden' }}
+      style={{ overflowY: 'hidden' }}
     >
       <motion.div
         variants={footerVariant}

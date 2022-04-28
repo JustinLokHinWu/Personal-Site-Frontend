@@ -1,16 +1,17 @@
 import React from 'react';
-import { Divider, Image, Typography } from 'antd';
+import { Typography } from 'antd';
 import ArticleHeader from '../ArticleHeader';
-import site_architecture from '../../assets/images/site-architecture.png';
+import { PersonalSiteInfo } from '../ArticleInfo';
+import siteArchitecture from '../../assets/images/site-architecture.png';
 import ImageFigure from '../ImageFigure';
 
 const { Title, Paragraph } = Typography;
 
-function PersonalSiteArticle({ info }) {
+function PersonalSiteArticle() {
   return (
     <div>
       <ArticleHeader
-        info={info}
+        info={PersonalSiteInfo}
       />
       <Title level={5}>Frontend</Title>
       <Paragraph>
@@ -39,7 +40,7 @@ function PersonalSiteArticle({ info }) {
         {' '}
         integration for monitoring logs and traffic metrics.
       </Paragraph>
-      <ImageFigure image={site_architecture} caption="Site architecture, including the backend architecture used to serve the ACTGAN demo" />
+      <ImageFigure image={siteArchitecture} caption="Site architecture, including the backend architecture used to serve the ACTGAN demo" />
       <Title level={5}>Backend</Title>
       <Paragraph>
         The backend services, responsible for handling requests called by the project demos, are hosted on AWS. These REST APIs are accessible through an

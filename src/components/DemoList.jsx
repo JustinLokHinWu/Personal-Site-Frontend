@@ -19,7 +19,7 @@ function DemoList() {
           demoPath={item.page_path}
           links={item.links}
           image={item.image}
-          image_alt={item.image_alt}
+          imageAlt={item.image_alt}
         />
       )}
     />
