@@ -11,6 +11,11 @@
     "axios": "^0.21.1",
     "craco-less": "^2.0.0",
     "create-react-app": "^4.0.3",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.5.0",
     "framer-motion": "^6.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -26,7 +31,8 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "craco eject"
+    "eject": "craco eject",
+    "lint": "eslint src/**.js"
   },
   "eslintConfig": {
     "extends": [
