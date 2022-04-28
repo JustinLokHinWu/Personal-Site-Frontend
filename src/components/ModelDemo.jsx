@@ -34,7 +34,6 @@ function ModelDemo({ info, backendURL }) {
       },
     )
       .then((response) => {
-        console.log(response);
         const file = new Blob([response.data], { type: response.headers['content-type'] });
         setImages([{
           path: URL.createObjectURL(file),
@@ -42,8 +41,7 @@ function ModelDemo({ info, backendURL }) {
           class: classes[class_id],
           seed,
         }, ...images]);
-      }).catch((error) => {
-        console.log(error);
+      }).catch(() => {
         message.error('Failed to fetch the requested image');
       }).finally(() => {
         setIsRequesting(false);
@@ -60,8 +58,7 @@ function ModelDemo({ info, backendURL }) {
       ).then((response) => {
         setDatasets(response.data);
         setIsDatasetReady(true);
-      }).catch((error) => {
-        console.log(error);
+      }).catch(() => {
         message.error('Failed to get datasets');
       }).finally(() => {
         setFetchingDatasetLists(false);
@@ -99,8 +96,8 @@ function ModelDemo({ info, backendURL }) {
           setClasses(responses[1].data);
           setIsDatasetReady(true);
         }),
-      ).catch((errors) => {
-        console.log(errors);
+      ).catch(() => {
+        message.error('Failed to get epochs and classes');
       }).finally(() => {
         setFetchingClassAndEpochs(false);
       });
