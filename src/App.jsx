@@ -2,7 +2,7 @@ import React from 'react';
 import './App.less';
 import { BrowserRouter } from 'react-router-dom';
 import { Affix, Layout, Col } from 'antd';
-import { motion } from 'framer-motion/dist/framer-motion';
+import { motion } from 'framer-motion';
 import HeaderMenu from './components/HeaderMenu';
 import ContentRoutes from './components/ContentRoutes';
 import PageFooter from './components/PageFooter';

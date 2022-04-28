@@ -2,7 +2,7 @@ import { React, useEffect } from 'react';
 import {
   Divider, Space, Typography, Layout,
 } from 'antd';
-import { motion, useAnimation } from 'framer-motion/dist/framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 import Socials from './Socials';

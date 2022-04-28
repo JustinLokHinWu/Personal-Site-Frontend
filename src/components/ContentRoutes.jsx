@@ -1,6 +1,6 @@
 import { React } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion/dist/framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import Home from './Home';
 import PersonalSiteArticle from './Articles/PersonalSiteArticle';
 import ActganArticle from './Articles/ActganArticle';

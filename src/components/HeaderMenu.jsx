@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu } from 'antd';
-import { motion } from 'framer-motion/dist/framer-motion';
+import { motion } from 'framer-motion';
 
 import { HashLink as Link } from 'react-router-hash-link';
 import { HomeOutlined } from '@ant-design/icons';

@@ -1,5 +1,5 @@
 import { React, useEffect } from 'react';
-import { motion } from 'framer-motion/dist/framer-motion';
+import { motion } from 'framer-motion';
 
 const pageVariant = {
   in: {
