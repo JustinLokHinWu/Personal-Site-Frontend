@@ -5,9 +5,6 @@
   "dependencies": {
     "@ant-design/icons": "4.0.0",
     "@craco/craco": "^6.4.3",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "antd": "^4.16.12",
     "axios": "^0.21.1",
     "craco-less": "^2.0.0",
@@ -29,13 +26,22 @@
     "serve": "^13.0.2",
     "web-vitals": "^1.0.1"
   },
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.0.4",
+    "babel-jest": "^28.0.2",
+    "jest": "^28.0.2",
+    "react-test-renderer": "^18.1.0"
+  },
   "scripts": {
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
-    "lint": "eslint -c .eslintrc.json src/*/**.jsx",
-    "lint-fix": "eslint -c .eslintrc.json src/*/**.jsx --fix"
+    "lint": "eslint -c .eslintrc.json src/*/**.jsx src/*/**.js",
+    "lint-fix": "eslint -c .eslintrc.json src/*/**.jsx src/*/**.js --fix"
   },
   "eslintConfig": {
     "extends": [
