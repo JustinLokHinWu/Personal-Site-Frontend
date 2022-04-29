@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Avatar, Space, Typography,
 } from 'antd';
-import ProfilePicture from '../assets/images/profile.jpeg';
+import ProfilePicture from '../assets/images/profile.jpg';
 
 const { Title, Paragraph } = Typography;
 
