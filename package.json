@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "4.0.0",
+    "@babel/runtime": "^7.17.9",
     "@craco/craco": "^6.4.3",
     "antd": "^4.16.12",
     "axios": "^0.21.1",
