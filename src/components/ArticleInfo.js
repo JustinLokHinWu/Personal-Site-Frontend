@@ -1,6 +1,6 @@
 import { GithubFilled, CodeOutlined, ReadOutlined } from '@ant-design/icons';
 import actganImage from '../assets/images/ACTGAN.png';
-import siteImage from '../assets/images/site.jpeg';
+import siteImage from '../assets/images/site.jpg';
 
 export const ActganInfo = {
   key: 'actgan',
