@@ -1,54 +1,37 @@
 import { React } from 'react';
-import ReactDOM from 'react-dom';
-import { fireEvent } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { shallow } from 'enzyme';
 import SeedInput from '../SeedInput';
 
-let container;
+describe('Seed input function tests', () => {
+  let seed;
+  let form;
+  let wrapper;
 
-beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
-});
+  beforeEach(() => {
+    seed = null;
+    const setSeed = (value) => { seed = value; };
+    wrapper = shallow(<SeedInput seed={seed} setSeed={setSeed} />);
 
-afterEach(() => {
-  document.body.removeChild(container);
-  container = null;
-});
-
-it('Seed should be null when input is null', () => {
-  let seed = null;
-  const setSeed = (value) => { seed = value; };
-  act(() => {
-    ReactDOM.render(<SeedInput seed={seed} setSeed={setSeed} />, container);
+    form = wrapper.find('Input');
   });
 
-  const form = container.querySelector('Input');
-  fireEvent.change(form, { target: { value: null } });
-  expect(seed).toBe(null);
-});
+  test('Seed should be null when input is null', () => {
+    form.simulate('change', { target: { value: null } });
 
-it('Seed should be null when input is alphanumeric', () => {
-  let seed = null;
-  const setSeed = (value) => { seed = value; };
-  act(() => {
-    ReactDOM.render(<SeedInput seed={seed} setSeed={setSeed} />, container);
+    expect(seed).toEqual(null);
   });
 
-  const form = container.querySelector('Input');
-  fireEvent.change(form, { target: { value: 'string123' } });
-  expect(seed).toBe(null);
-});
+  test('Seed should be null when input is alphanumeric', () => {
+    form = wrapper.find('Input');
+    form.simulate('change', { target: { value: 'abc123' } });
 
-it('Seed should be null when input is numeric string', () => {
-  let seed = null;
-  const expectedSeed = '12321';
-  const setSeed = (value) => { seed = value; };
-  act(() => {
-    ReactDOM.render(<SeedInput seed={seed} setSeed={setSeed} />, container);
+    expect(seed).toEqual(null);
   });
+  test('Seed should be updated when input is a numeric string', () => {
+    const expectedSeed = '123';
+    form = wrapper.find('Input');
+    form.simulate('change', { target: { value: expectedSeed } });
 
-  const form = container.querySelector('Input');
-  fireEvent.change(form, { target: { value: expectedSeed } });
-  expect(seed).toBe(expectedSeed);
+    expect(seed).toEqual(expectedSeed);
+  });
 });
