@@ -25,6 +25,7 @@ function ModelDemo({ backendURL }) {
     axios.get(
       `${backendURL}/generate`,
       {
+        'Access-Control-Allow-Origin': '*',
         params: {
           class_id: classId,
           epoch,
@@ -75,6 +76,7 @@ function ModelDemo({ backendURL }) {
       const requestEpochs = axios.get(
         `${backendURL}/get-epochs`,
         {
+          'Access-Control-Allow-Origin': '*',
           params: {
             dataset,
           },
@@ -85,6 +87,7 @@ function ModelDemo({ backendURL }) {
       const requestClasses = axios.get(
         `${backendURL}/get-classes`,
         {
+          'Access-Control-Allow-Origin': '*',
           params: {
             dataset,
           },
