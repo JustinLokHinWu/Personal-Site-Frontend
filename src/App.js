@@ -5,7 +5,7 @@ import HeaderMenu from './components/HeaderMenu';
 import ContentRoutes from './components/ContentRoutes';
 import Socials from './components/Socials'
 import PageFooter from './components/PageFooter';
-import { motion } from 'framer-motion/dist/framer-motion'
+import { motion } from 'framer-motion'
 
 const { Content } = Layout;
 

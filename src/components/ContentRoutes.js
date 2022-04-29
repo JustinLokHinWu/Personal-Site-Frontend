@@ -7,7 +7,7 @@ import ActganArticle from './Articles/ActganArticle';
 import { actganBackendURL } from './ApiClient'
 import MissingPage from './MissingPage';
 import Page from './Page';
-import { AnimatePresence } from 'framer-motion/dist/framer-motion'
+import { AnimatePresence } from 'framer-motion'
 
 const routes = [
 	{ path: '/demos/actgan', name: 'Actgan',

@@ -1,5 +1,5 @@
 import { React, useEffect } from 'react'
-import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
+import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
 const PageSection = ({children, id}) => {
