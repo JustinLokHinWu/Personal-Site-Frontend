@@ -37,7 +37,7 @@ function ModelForm({
   }, [epochs]);
 
   useEffect(() => {
-    setSelectedClass(classes[0]);
+    setSelectedClass(0);
   }, [classes]);
 
   return (

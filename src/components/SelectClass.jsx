@@ -28,7 +28,7 @@ SelectClass.propTypes = {
   datasetSelected: PropTypes.bool.isRequired,
   fetchingClassAndEpochs: PropTypes.bool.isRequired,
   isDatasetReady: PropTypes.bool.isRequired,
-  selectedClass: PropTypes.string,
+  selectedClass: PropTypes.number,
   setSelectedClass: PropTypes.func.isRequired,
 };
 
