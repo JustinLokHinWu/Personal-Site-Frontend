@@ -16,7 +16,7 @@ export const ActganInfo = {
       key: 'actgan-button-model-link', text: 'Model', link: 'https://github.com/JustinLokHinWu/ACTGAN', icon: GithubFilled, isInternalLink: false,
     },
     {
-      key: 'actgan-button-service-link', text: 'Service', link: 'https://github.com/JustinLokHinWu/ACTGAN-Service', icon: GithubFilled, isInternalLink: false,
+      key: 'actgan-button-service-link', text: 'Service', link: 'https://github.com/JustinLokHinWu/actgan-lambda-service', icon: GithubFilled, isInternalLink: false,
     },
   ],
   image: actganImage,
