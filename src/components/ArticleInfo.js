@@ -16,7 +16,7 @@ export const ActganInfo = {
       key: 'actgan-button-model-link', text: 'Model', link: 'https://github.com/JustinLokHinWu/ACTGAN', icon: GithubFilled, isInternalLink: false,
     },
     {
-      key: 'actgan-button-service-link', text: 'Service', link: 'https://github.com/JustinLokHinWu/ACTGAN-Service', icon: GithubFilled, isInternalLink: false,
+      key: 'actgan-button-service-link', text: 'Service', link: 'https://github.com/JustinLokHinWu/actgan-lambda-service', icon: GithubFilled, isInternalLink: false,
     },
   ],
   image: actganImage,
@@ -27,7 +27,7 @@ export const PersonalSiteInfo = {
   key: 'personalsite',
   title: 'Personal Site',
   description: 'React frontend interfacing with AWS backend',
-  content: 'This personal website consists of a React frontend, using Ant Design for UI components and Axios for making requests to backend APIs. The backend is hosted on AWS, using API Gateway and Lambda to serve REST APIs.',
+  content: 'React frontend hosted on AWS Amplify, using Ant Design for UI components, Axios for making requests to backend APIs, Jest/Enzyme for unit testing, and Framer Motion for animations. The backend is hosted on AWS, using API Gateway and Lambda to serve REST APIs.',
   links: [
     {
       key: 'personal-button-more', text: 'Read More', link: '/articles/personal-site', icon: ReadOutlined, isArticleLink: true, isInternalLink: true,

@@ -15,7 +15,11 @@ function PersonalSiteArticle() {
       />
       <Title level={5}>Frontend</Title>
       <Paragraph>
-        The website&apos;s frontend is a React application that uses
+        The website&apos;s frontend is a
+        {' '}
+        <a href="https://reactjs.org/">React</a>
+        {' '}
+        application that uses
         {' '}
         <a href="https://ant.design/">Ant Design</a>
         {' '}
@@ -23,29 +27,52 @@ function PersonalSiteArticle() {
         {' '}
         <a href="https://axios-http.com/">Axios</a>
         {' '}
-        for backend request promise handling,
+        for managing backend HTTP request promises,
         {' '}
         <a href="https://reactrouter.com/">React Router</a>
         {' '}
-        for page routing, and
+        for client-side page routing,
         {' '}
-        <a href="https://reactcommunity.org/react-transition-group/">React Transition Group</a>
+        <a href="https://jestjs.io/">Jest</a>
         {' '}
-        for page transition animations. It is hosted on
+        and
+        {' '}
+        <a href="https://airbnb.io/projects/enzyme/">Enzyme</a>
+        {' '}
+        for unit testing, and
+        {' '}
+        <a href="https://www.framer.com/motion/">Framer Motion</a>
+        {' '}
+        for page transitions and animations.
+      </Paragraph>
+      <Paragraph>
+        I chose to host the site on
         {' '}
         <a href="https://aws.amazon.com/amplify/">AWS Amplify</a>
-        , which provides features such as easy continuous integration and deployment from GitHub,
-        test and production environments, and
+        , since it provides several convenient services that facilitate continuous integration and
+        deployment.
+
+        Pull requests on the project&apos;s Github repository&apos;s trigger
+        {' '}
+        <a href="https://github.com/features/actions">Actions</a>
+        {' '}
+        that run unit tests and deploy the project on a test environment hosted on Amplify.
+        Then, when the pull request is merged, Amplify automatically deploys the project to
+        production. I also leverage Amplify&apos;s integration with
         {' '}
         <a href="https://aws.amazon.com/cloudwatch/">CloudWatch</a>
         {' '}
-        integration for monitoring logs and traffic metrics.
+        to monitor logs and track traffic metrics.
       </Paragraph>
-      <ImageFigure image={siteArchitecture} caption="Site architecture, including the backend architecture used to serve the ACTGAN demo" />
+      <ImageFigure
+        image={siteArchitecture}
+        caption="Site architecture, including the backend architecture used to serve the ACTGAN demo"
+        width="75%"
+      />
       <Title level={5}>Backend</Title>
       <Paragraph>
-        The backend services, responsible for handling requests called by the project demos, are
-        hosted on AWS. These REST APIs are accessible through an
+        The backend services, which are called by the project demos, are also hosted on AWS.
+        The served REST APIs are accessible through an
         {' '}
         <a href="https://aws.amazon.com/api-gateway/">AWS API Gateway</a>
         , which routes traffic to the correct backend service, performs caching, and enforces
@@ -53,33 +80,33 @@ function PersonalSiteArticle() {
         services that can differ in architecture.
       </Paragraph>
       <Paragraph>
-        For the ACTGAN model demo, I use
+        I built the ACTGAN machine learning demo application on top of
         {' '}
         <a href="https://aws.amazon.com/lambda/">AWS Lambda</a>
-        , a platform for hosting serverless applications. Unlike traditional dedicated servers,
-        serverless architectures only provision required resources on demand. Since I expect light,
-        sparse traffic to these endpoints, this is suitable for my use case. A disadvantage of
-        serverless models is that the API functions experience a &quot;cold start&quot; when
-        called after a period of inactivity, since the required compute resources need time to be
-        allocated. In testing, the resulting delay in my APIs is within reasonable bounds, so no
-        measures are needed to keep the functions &quot;warm.&quot; The function handlers for these
+        , a platform for hosting serverless applications. Unlike the dedicated servers used
+        traditionally, serverless architectures only provision required resources on demand.
+        Since I expect light, intermittent traffic to these endpoints, a serverless architecture is
+        suitable.
+      </Paragraph>
+      <Paragraph>
+        The Lambda function handlers for these
         APIs are written in Python for easy integration with the trained PyTorch models needed to
-        serve the demo&apos;s generate API. To access the machine learning model files stored on
+        serve the demo&apos;s generate API. These machine learning model files are stored on
         {' '}
-        <a href="https://aws.amazon.com/s3/">S3</a>
-        , I use
+        <a href="https://aws.amazon.com/s3/">Amazon S3</a>
+        , which are then retrieved by the application using a
         {' '}
         <a href="https://aws.amazon.com/sdk-for-python/">Boto3</a>
-        . For the simpler request handlers used to fetch information from S3, such as
-        &quot;get-datasets&quot; and &quot;get-epochs,&quot; a default Python runtime provided by
-        AWS is used. The generate function, which requires several non-standard libraries such as
-        PyTorch, is deployed as a
+        {' '}
+        client. The generate API uses these models to produces an image output from the request
+        parameters. Since this process requires several non-standard libraries such as
+        PyTorch, this particular Lambda function handler is deployed as a
         {' '}
         <a href="https://www.docker.com/">Docker</a>
         {' '}
-        container hosted on
+        container stored on
         {' '}
-        <a href="https://aws.amazon.com/ecr/">ECR</a>
+        <a href="https://aws.amazon.com/ecr/">Amazon ECR</a>
         .
       </Paragraph>
       <Paragraph>
@@ -91,11 +118,11 @@ function PersonalSiteArticle() {
         called
         {' '}
         <a href="https://aws.amazon.com/serverless/sam/">Serverless Application Model (SAM)</a>
-        . It allows me to define resources such as the API Gateway, Lambda functions, and IAM roles
-        through code in a configuration file. This approach is advantageous over manually
-        configuring resources through the AWS console, since it facilitates replicable creation and
-        deployment of server resources, automatically provides development and production
-        environments, and enables easy testing.
+        . I define resources such as the API Gateway, Lambda functions, and IAM roles
+        through code in a SAM configuration file. This approach is advantageous to manually
+        configuring resources in the AWS console, since it facilitates the replicable creation of
+        server resources, the separate configuration of development and production environments,
+        and testing through the SAM CLI.
       </Paragraph>
     </div>
   );
