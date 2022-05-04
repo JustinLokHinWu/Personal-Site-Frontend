@@ -7,6 +7,7 @@ import ActganArticle from './Articles/ActganArticle';
 import { actganBackendURL } from './ApiClient';
 import MissingPage from './MissingPage';
 import Page from './Page';
+import PageContent from './PageContent';
 
 const routes = [
   {
@@ -52,9 +53,13 @@ function ContentRoutes() {
             key={location.key}
             exact
             path={path}
-            element={
-              <Page initial="outRight" exit="outRight">{component}</Page>
-}
+            element={(
+              <Page initial="outRight" exit="outRight">
+                <PageContent>
+                  {component}
+                </PageContent>
+              </Page>
+            )}
           />
         ))}
       </Routes>

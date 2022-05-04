@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.less';
 import { BrowserRouter } from 'react-router-dom';
-import { Affix, Layout, Col } from 'antd';
+import { Affix, Layout } from 'antd';
 import { motion } from 'framer-motion';
 import HeaderMenu from './components/HeaderMenu';
 import ContentRoutes from './components/ContentRoutes';
@@ -35,16 +35,7 @@ function App() {
             <Affix>
               <HeaderMenu />
             </Affix>
-            <Col
-              xs={24}
-              sm={24}
-              md={20}
-              lg={18}
-              xl={16}
-              style={{ padding: '30px 5%', minHeight: 380, margin: 'auto' }}
-            >
-              <ContentRoutes />
-            </Col>
+            <ContentRoutes />
           </Content>
         </motion.div>
         <PageFooter />

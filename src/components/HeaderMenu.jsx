@@ -31,12 +31,12 @@ function HeaderMenu() {
 
   const headerVariant = {
     hidden: {
-      y: -30,
-      opacity: 0,
+      // y: -30,
+      // opacity: 0,
     },
     visible: {
-      y: 0,
-      opacity: 1,
+      // y: 0,
+      // opacity: 1,
       transition: {
         duration: 0.4,
       },
