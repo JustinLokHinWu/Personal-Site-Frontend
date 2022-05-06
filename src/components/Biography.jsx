@@ -26,8 +26,10 @@ function Biography() {
       />
       <Title level={2}>Hi, I&apos;m Justin</Title>
       <Paragraph style={{ textAlign: 'justify' }}>
-        I am a computer science graduate from the University of Toronto St. George. I am passionate
-        in machine learning and web architecture.
+        I am a software developer currently living in Toronto, Canada. I studied Computer
+        Science
+        at the University of Toronto St. George, graduating with an Honours Bachelor&apos;s of
+        Science. I am passionate in machine learning, data science, and system design.
       </Paragraph>
       <Socials useText={false} />
     </Space>
