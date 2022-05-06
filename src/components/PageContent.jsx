@@ -9,7 +9,7 @@ function PageContent({ children }) {
       sm={24}
       md={20}
       lg={18}
-      xl={16}
+      xl={14}
       style={{ padding: '30px 5%', minHeight: 380, margin: 'auto' }}
     >
       {children}

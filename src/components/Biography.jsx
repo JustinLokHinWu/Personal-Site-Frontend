@@ -3,6 +3,7 @@ import {
   Avatar, Space, Typography,
 } from 'antd';
 import ProfilePicture from '../assets/images/profile.jpg';
+import Socials from './Socials';
 
 const { Title, Paragraph } = Typography;
 
@@ -28,6 +29,7 @@ function Biography() {
         I am a computer science graduate from the University of Toronto St. George. I am passionate
         in machine learning and web architecture.
       </Paragraph>
+      <Socials useText={false} />
     </Space>
   );
 }
