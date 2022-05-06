@@ -10,7 +10,7 @@ function PageContent({ children }) {
       md={20}
       lg={18}
       xl={14}
-      style={{ padding: '30px 5%', minHeight: 380, margin: 'auto' }}
+      style={{ padding: '30px 5%', margin: 'auto' }}
     >
       {children}
     </Col>
