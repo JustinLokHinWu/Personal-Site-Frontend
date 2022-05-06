@@ -1,7 +1,6 @@
 import React from 'react';
 import { Typography, Divider } from 'antd';
 import DemoList from './DemoList';
-// import Biography from './Biography';
 import ExperienceList from './ExperienceList';
 import PageSection from './PageSection';
 import PageContent from './PageContent';
@@ -12,9 +11,6 @@ const { Title } = Typography;
 function Home() {
   return (
     <div>
-      {/* <PageSection id="biography">
-        <Biography />
-      </PageSection> */}
       <HeroImage />
       <PageContent>
         <PageSection id="demos">
