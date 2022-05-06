@@ -1,21 +1,23 @@
 const CracoLessPlugin = require('craco-less');
 
 module.exports = {
-    plugins: [
-        {
-        plugin: CracoLessPlugin,
-        options: {
-            lessLoaderOptions: {
-                lessOptions: {
-                    modifyVars: {
-                        '@primary-color': '#F25F5C',
-                        '@layout-header-background': '#2B303A',
-                        '@layout-footer-background': '@layout-header-background'
-                    },
-                    javascriptEnabled: true,
-                },
+  plugins: [
+    {
+      plugin: CracoLessPlugin,
+      options: {
+        lessLoaderOptions: {
+          lessOptions: {
+            modifyVars: {
+              '@primary-color': '#ED6A5A',
+              '@layout-header-background': '#2b303a',
+              '@layout-footer-background': '@layout-header-background',
+              '@text-color-inverse': '#FFF9EC',
+              '@layout-body-background': '#FFFFFF',
             },
+            javascriptEnabled: true,
+          },
         },
-        },
-    ],
+      },
+    },
+  ],
 };
