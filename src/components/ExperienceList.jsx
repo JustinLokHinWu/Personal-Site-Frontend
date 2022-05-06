@@ -21,7 +21,7 @@ function ExperienceList() {
       title: 'CaseWare International',
       description: 'May 2019 - August 2020',
       location: 'Toronto, ON',
-      content: 'At CaseWare, I worked on a variety of projects. I modernized a legacy IIS C++ server, overhauling the logging system to minimize bottlenecking during high-throughput, multithreaded tasks, collaborating with security experts to fix potential exploits, and introducing new standards for testing. I also researched, designed, and implemented a data processing pipeline for machine learning in Python. This pipeline ensures all user data used for machine learning is properly sanitized of personally identifiable information up to a high standard of k-anonymity. Lastly, I helped develop an Angular frontend that graphs financial data from a microservice.',
+      content: 'At CaseWare, I worked on a variety of projects. I modernized a legacy IIS C++ server by overhauling the logging system to minimize bottlenecking during multithreaded tasks, collaborating with security experts to fix potential exploits, and introducing new standards for testing. I also researched, designed, and implemented a data processing pipeline for machine learning in Python. This pipeline ensures all user data used for machine learning is properly sanitized of personally identifiable information up to a high standard of anonymity. Lastly, I developed an Angular frontend that graphs financial data from a microservice.',
       image: imageCaseware,
       imageAlt: 'caseware',
     },
