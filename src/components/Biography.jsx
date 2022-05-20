@@ -37,7 +37,7 @@ function Biography() {
             I am a software developer currently living in Toronto, Canada. I studied Computer
             Science
             at the University of Toronto St. George, graduating with an Honours Bachelor&apos;s of
-            Science. I am passionate in machine learning, data science, and system design.
+            Science. I am passionate in machine learning, data science, and web architecture.
           </Paragraph>
           <Socials useText={false} />
         </Space>
