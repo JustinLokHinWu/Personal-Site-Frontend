@@ -18,7 +18,7 @@ function Socials({ useText }) {
         text={useText ? 'Email' : null}
         tooltip="Copied to clipboard"
         onClick={() => {
-          navigator.clipboard.writeText('JustinLHWu@gmail.com');
+          navigator.clipboard.writeText('justin.lokhin.wu@gmail.com');
         }}
         size="large"
       />
